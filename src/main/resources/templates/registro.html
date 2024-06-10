@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css}"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="shortcut icon" th:href="@{/logos/favicon16.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Registro Inmolab</title>
+</head>
+
+<body class="bodyLogin">
+    <div class="container-fluid text-center ">
+        <div class="row">
+            <div class="col-md-12 col-xs-12 centroArriba"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 form-content ">
+             <div class="col-md-12 text-center">
+                    <img class="pb-5" th:src="@{/logos/menuNavLogoNegro.png}" alt="Logotipo">
+                </div>
+
+                <div class="col-md-12 text-center pb-2">
+                    <h4>Registro</h4>
+                </div>
+                <div th:if=${param.exito}>
+					<div class="alert alert-info">Se ha registrado exitosamente a
+						la aplicación</div>
+				</div>
+<form th:action="@{/registro}" method="post" th:object="${usuario}">
+    <div class="input-group p-3">
+        <span class="input-group-text bg-dark text-light fixed-width-span">Username</span> 
+        <input id="username" th:field="*{username}" type="text" class="form-control text-left" required autofocus="autofocus" aria-label="Username" placeholder="Escribe tu username">                        
+    </div>
+    <div class="input-group p-3">
+        <span class="input-group-text bg-dark text-light fixed-width-span">Password</span> 
+        <input id="password" th:field="*{password}" type="password" class="form-control text-left" required autofocus="autofocus" aria-label="Password" placeholder="Contraseña">                        
+    </div>
+    <input type="hidden" th:field="*{enabled}" value="1" />
+    <div class="form-group">
+        <button type="submit" class="btn btn-dark">Registrar</button>
+        <span>Si estas registrado <a th:href="@{/login}">inicia sesión aqui</a></span>
+    </div>
+</form>
+                <a class="navbar-brand" href="#" th:href="@{/}">Registro y
+					inicio de sesión</a>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12 centroAbajo"></div>
+        </div>
+    </div>
+    <script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js}"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js}"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <script th:src="@{/js/scripts.js}"></script>
+</body>
+</html>
