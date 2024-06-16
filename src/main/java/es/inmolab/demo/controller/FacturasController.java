@@ -7,27 +7,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 @Controller
-@RequestMapping("/dashboard")
-public class DasboardController {
-	
+@RequestMapping("/facturacion")
+public class FacturasController {
 	
 	Logger log = LoggerFactory.getLogger(UserController.class);
-	
- 
-	
-	@GetMapping
-	public String miMetodo() {
-		log.info("[ GET METODO DESDE EL DASHBOARD]");
-		return "dashboard";
-	}
-	
-	
-	@PostMapping
-	public String miMetodoPost() {
-		log.info("[POST METODO DESDE EL DASHBOARD]");
-		return "dashboard";
-	}
+    @GetMapping
+    public String miMetodoGet() {
+        log.info("[GET METODO DESDE EL propiedadesAlquiler]");
+        return "facturacion";
+    }
+    
+    @PostMapping
+    public String miMetodoPost() {
+        log.info("[POST METODO DESDE EL DASHBOARD]");
+        return "facturacion";
+    }
 
 }
