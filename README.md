@@ -1,6 +1,6 @@
-<h1 align="center"> GitPoint </h1> <br>
+<h1 align="center"> Inmolab </h1> <br>
 <p align="center">
-  <a href="https://gitpoint.co/">
+  <a href="https://github.com/ripper21/MvcInmolab/">
     <img alt="Inmolab" title="Inmolab" src="http://i.imgur.com/c0efZMp.png" width="450">
   </a>
 </p>
@@ -36,14 +36,11 @@
 
 ## Introducción
 
-[![Build Status](https://img.shields.io/travis/gitpoint/git-point.svg?style=flat-square)](https://travis-ci.org/gitpoint/git-point)
-[![Coveralls](https://img.shields.io/coveralls/github/gitpoint/git-point.svg?style=flat-square)](https://coveralls.io/github/gitpoint/git-point)
-[![All Contributors](https://img.shields.io/badge/all_contributors-73-orange.svg?style=flat-square)](./CONTRIBUTORS.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
 [![Gitter chat](https://img.shields.io/badge/chat-on_gitter-008080.svg?style=flat-square)](https://gitter.im/git-point)
 
-Ver información del repositorio y del usuario, controlar tus notificaciones e incluso gestionar tus problemas y solicitudes de extracción. Construido con React Native, GitPoint es uno de los clientes no oficiales de GitHub con más funciones y es 100% gratuito.
+Ver información del repositorio y del usuario, controlar tus notificaciones e incluso gestionar tus problemas y solicitudes de extracción. Construido con React Native, Inmolab es uno de los clientes no oficiales de GitHub con más funciones y es 100% gratuito.
 
 **Disponible tanto para iOS como para Android.**
 
@@ -53,7 +50,7 @@ Ver información del repositorio y del usuario, controlar tus notificaciones e i
 
 ## Características
 
-Algunas de las cosas que puedes hacer con GitPoint:
+Algunas de las cosas que puedes hacer con Inmolab:
 
 * Ver el feed de actividad del usuario
 * Comunicarte en tus conversaciones de problemas y solicitudes de extracción
@@ -77,20 +74,22 @@ Algunas de las cosas que puedes hacer con GitPoint:
 
 Si hay algo de lo que te gustaría hablar, ¡siéntete libre de unirte a nuestro [chat de Gitter](https://gitter.im/git-point)!
 
-## Proceso de Construcción
+## Proceso de Instalación
 
-- Sigue la [Guía de React Native](https://facebook.github.io/react-native/docs/getting-started.html) para comenzar a construir un proyecto con código nativo. **Se requiere un Mac si deseas desarrollar para iOS.**
 - Clona o descarga el repositorio
-- `yarn` para instalar dependencias
-- `yarn run link` para enlazar dependencias de react-native
-- `yarn start:ios` para iniciar el empaquetador y ejecutar la aplicación en el simulador de iOS (`yarn start:ios:logger` iniciará la aplicación con [redux-logger](https://github.com/evgenyrodionov/redux-logger))
-- `yarn start:android` para iniciar el empaquetador y ejecutar la aplicación en el dispositivo/emulador de Android (`yarn start:android:logger` iniciará la aplicación con [redux-logger](https://github.com/evgenyrodionov/redux-logger))
+- :::::
+- :::::
+- :::::
+- :::::
+- :::::
+- :::::
+- :::::
+- :::::
 
 Por favor, consulta las [directrices de contribución](./CONTRIBUTING.md) para obtener un proceso detallado sobre cómo construir tu aplicación, así como información de resolución de problemas.
 
-**Claves de Desarrollo**: El `CLIENT_ID` y `CLIENT_SECRET` en `api/index.js` son para propósitos de desarrollo y no representan las claves reales de la aplicación. Siéntete libre de usarlas o usar un nuevo conjunto de claves creando una [aplicación OAuth](https://github.com/settings/applications/new) propia. Establece la "URL de callback de autorización" a `gitpoint://welcome`.
 
-## NimoCoders [![NimoCoders en Open Collective](https://opencollective.com/git-point/backers/badge.svg)](#nimocoders)
+## NimoCoders (#nimocoders)
 
 ¡Gracias a todos nuestros NimoCoders! 🙏 [[Conviértete en un NimoCoder](https://opencollective.com/git-point#backer)]
 
