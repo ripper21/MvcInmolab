@@ -6,35 +6,35 @@
 </p>
 
 <p align="center">
-  GitHub in your pocket. Built with Spring .
+  GitHub en tu bolsillo. Construido con Spring.
 </p>
 
 <p align="center">
   <a href="https://google.com">
-    <img alt="Download on the App Store" title="App Store" src="http://i.imgur.com/0n2zqHD.png" width="140">
+    <img alt="Descargar en la App Store" title="App Store" src="http://i.imgur.com/0n2zqHD.png" width="140">
   </a>
 
   <a href="https://google.com">
-    <img alt="Get it on Google Play" title="Google Play" src="http://i.imgur.com/mtGRPuM.png" width="140">
+    <img alt="Consíguelo en Google Play" title="Google Play" src="http://i.imgur.com/mtGRPuM.png" width="140">
   </a>
 </p>
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-## Table of Contents
+## Tabla de Contenidos
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Feedback](#feedback)
-- [Contributors](#contributors)
-- [Build Process](#build-process)
+- [Introducción](#introduction)
+- [Características](#features)
+- [Comentarios](#feedback)
+- [Contribuidores](#contributors)
+- [Proceso de Construcción](#build-process)
 - [NimoCoders](#nimocoders-)
-- [Sponsors](#sponsors-)
-- [Acknowledgments](#acknowledgments)
+- [Patrocinadores](#sponsors-)
+- [Agradecimientos](#acknowledgments)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Introduction
+## Introducción
 
 [![Build Status](https://img.shields.io/travis/gitpoint/git-point.svg?style=flat-square)](https://travis-ci.org/gitpoint/git-point)
 [![Coveralls](https://img.shields.io/coveralls/github/gitpoint/git-point.svg?style=flat-square)](https://coveralls.io/github/gitpoint/git-point)
@@ -43,27 +43,27 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
 [![Gitter chat](https://img.shields.io/badge/chat-on_gitter-008080.svg?style=flat-square)](https://gitter.im/git-point)
 
-View repository and user information, control your notifications and even manage your issues and pull requests. Built with React Native, GitPoint is one of the most feature-rich unofficial GitHub clients that is 100% free.
+Ver información del repositorio y del usuario, controlar tus notificaciones e incluso gestionar tus problemas y solicitudes de extracción. Construido con React Native, GitPoint es uno de los clientes no oficiales de GitHub con más funciones y es 100% gratuito.
 
-**Available for both iOS and Android.**
+**Disponible tanto para iOS como para Android.**
 
 <p align="center">
   <img src = "http://i.imgur.com/HowF6aM.png" width=350>
 </p>
 
-## Features
+## Características
 
-A few of the things you can do with GitPoint:
+Algunas de las cosas que puedes hacer con GitPoint:
 
-* View user activity feed
-* Communicate on your issue and pull request conversations
-* Close or lock issues
-* Apply labels and assignees
-* Review and merge pull requests
-* Create new issues
-* Star, watch and fork repositories
-* Control your unread and participating notifications
-* Easily search for any user or repository
+* Ver el feed de actividad del usuario
+* Comunicarte en tus conversaciones de problemas y solicitudes de extracción
+* Cerrar o bloquear problemas
+* Aplicar etiquetas y asignar responsables
+* Revisar y fusionar solicitudes de extracción
+* Crear nuevos problemas
+* Marcar como favorito, seguir y bifurcar repositorios
+* Controlar tus notificaciones no leídas y en las que participas
+* Buscar fácilmente cualquier usuario o repositorio
 
 <p align="center">
   <img src = "http://i.imgur.com/IkSnFRL.png" width=700>
@@ -73,38 +73,32 @@ A few of the things you can do with GitPoint:
   <img src = "http://i.imgur.com/0iorG20.png" width=700>
 </p>
 
-## Feedback
+## Comentarios
 
-Feel free to send us feedback on [Twitter](https://twitter.com/gitpointapp) or [file an issue](https://github.com/gitpoint/git-point/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
+Si hay algo de lo que te gustaría hablar, ¡siéntete libre de unirte a nuestro [chat de Gitter](https://gitter.im/git-point)!
 
-If there's anything you'd like to chat about, please feel free to join our [Gitter chat](https://gitter.im/git-point)!
+## Proceso de Construcción
 
-## Contributors
+- Sigue la [Guía de React Native](https://facebook.github.io/react-native/docs/getting-started.html) para comenzar a construir un proyecto con código nativo. **Se requiere un Mac si deseas desarrollar para iOS.**
+- Clona o descarga el repositorio
+- `yarn` para instalar dependencias
+- `yarn run link` para enlazar dependencias de react-native
+- `yarn start:ios` para iniciar el empaquetador y ejecutar la aplicación en el simulador de iOS (`yarn start:ios:logger` iniciará la aplicación con [redux-logger](https://github.com/evgenyrodionov/redux-logger))
+- `yarn start:android` para iniciar el empaquetador y ejecutar la aplicación en el dispositivo/emulador de Android (`yarn start:android:logger` iniciará la aplicación con [redux-logger](https://github.com/evgenyrodionov/redux-logger))
 
-This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification and is brought to you by these [awesome contributors](./CONTRIBUTORS.md).
+Por favor, consulta las [directrices de contribución](./CONTRIBUTING.md) para obtener un proceso detallado sobre cómo construir tu aplicación, así como información de resolución de problemas.
 
-## Build Process
+**Claves de Desarrollo**: El `CLIENT_ID` y `CLIENT_SECRET` en `api/index.js` son para propósitos de desarrollo y no representan las claves reales de la aplicación. Siéntete libre de usarlas o usar un nuevo conjunto de claves creando una [aplicación OAuth](https://github.com/settings/applications/new) propia. Establece la "URL de callback de autorización" a `gitpoint://welcome`.
 
-- Follow the [React Native Guide](https://facebook.github.io/react-native/docs/getting-started.html) for getting started building a project with native code. **A Mac is required if you wish to develop for iOS.**
-- Clone or download the repo
-- `yarn` to install dependencies
-- `yarn run link` to link react-native dependencies
-- `yarn start:ios` to start the packager and run the app in the iOS simulator (`yarn start:ios:logger` will boot the application with [redux-logger](<https://github.com/evgenyrodionov/redux-logger>))
-- `yarn start:android` to start the packager and run the app in the the Android device/emulator (`yarn start:android:logger` will boot the application with [redux-logger](https://github.com/evgenyrodionov/redux-logger))
+## NimoCoders [![NimoCoders en Open Collective](https://opencollective.com/git-point/backers/badge.svg)](#nimocoders)
 
-Please take a look at the [contributing guidelines](./CONTRIBUTING.md) for a detailed process on how to build your application as well as troubleshooting information.
-
-**Development Keys**: The `CLIENT_ID` and `CLIENT_SECRET` in `api/index.js` are for development purposes and do not represent the actual application keys. Feel free to use them or use a new set of keys by creating an [OAuth application](https://github.com/settings/applications/new) of your own. Set the "Authorization callback URL" to `gitpoint://welcome`.
-
-## NimoCoders [![NimoCoders on Open Collective](https://opencollective.com/git-point/backers/badge.svg)](#nimocoders)
-
-Thank you to all our NimoCoders! 🙏 [[Become a NimoCoder](https://opencollective.com/git-point#backer)]
+¡Gracias a todos nuestros NimoCoders! 🙏 [[Conviértete en un NimoCoder](https://opencollective.com/git-point#backer)]
 
 <a href="https://opencollective.com/git-point#backers" target="_blank"><img src="https://opencollective.com/git-point/backers.svg?width=890"></a>
 
-## Sponsors [![Sponsors on Open Collective](https://opencollective.com/git-point/sponsors/badge.svg)](#sponsors)
+## Patrocinadores [![Patrocinadores en Open Collective](https://opencollective.com/git-point/sponsors/badge.svg)](#sponsors)
 
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/git-point#sponsor)]
+Apoya este proyecto convirtiéndote en patrocinador. Tu logo aparecerá aquí con un enlace a tu sitio web. [[Conviértete en patrocinador](https://opencollective.com/git-point#sponsor)]
 
 <a href="https://opencollective.com/git-point/sponsor/0/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/git-point/sponsor/1/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/1/avatar.svg"></a>
@@ -117,6 +111,6 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/git-point/sponsor/8/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/8/avatar.svg"></a>
 <a href="https://opencollective.com/git-point/sponsor/9/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/9/avatar.svg"></a>
 
-## Acknowledgments
+## Agradecimientos
 
-Thanks to [JetBrains](https://www.jetbrains.com)  and [Spring](https://www.jetbrains.com) for supporting us with a [free Open Source License](https://www.jetbrains.com/buy/opensource).
+Gracias a [JetBrains](https://www.jetbrains.com) y [Spring](https://www.jetbrains.com) por apoyarnos con una [Licencia de Código Abierto gratuita](https://www.jetbrains.com/buy/opensource).
