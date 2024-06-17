@@ -45,7 +45,8 @@ Ver información del repositorio y del usuario, controlar tus notificaciones e i
 **Disponible tanto para iOS como para Android.**
 
 <p align="center">
-  <img src = "http://i.imgur.com/HowF6aM.png" width=350>
+  <img src = "http://i.imgur.com/W93xFCP.png" width=350>
+
 </p>
 
 ## Características
@@ -63,12 +64,9 @@ Algunas de las cosas que puedes hacer con Inmolab:
 * Buscar fácilmente cualquier usuario o repositorio
 
 <p align="center">
-  <img src = "http://i.imgur.com/IkSnFRL.png" width=700>
+  <img src = "http://i.imgur.com/HsvEeKo.png" width=700>
 </p>
 
-<p align="center">
-  <img src = "http://i.imgur.com/0iorG20.png" width=700>
-</p>
 
 ## Comentarios
 
