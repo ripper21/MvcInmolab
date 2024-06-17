@@ -1,7 +1,7 @@
 <h1 align="center"> Inmolab </h1> <br>
 <p align="center">
   <a href="https://github.com/ripper21/MvcInmolab/">
-    <img alt="Inmolab" title="Inmolab" src="http://i.imgur.com/c0efZMp.png" width="450">
+    <img alt="Inmolab" title="Inmolab" src="http://i.imgur.com/c0efZMp.png" width="300">
   </a>
 </p>
 
@@ -42,10 +42,10 @@
 
 Ver información del repositorio y del usuario, controlar tus notificaciones e incluso gestionar tus problemas y solicitudes de extracción. Construido con React Native, Inmolab es uno de los clientes no oficiales de GitHub con más funciones y es 100% gratuito.
 
-**Disponible tanto para iOS como para Android.**
+**Disponible Todo tipo de Navegadores Web **
 
 <p align="center">
-  <img src = "http://i.imgur.com/W93xFCP.png" width=350>
+  <img src = "http://i.imgur.com/W93xFCP.png" width=700>
 
 </p>
 
