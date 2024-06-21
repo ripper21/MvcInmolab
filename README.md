@@ -23,14 +23,14 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Tabla de Contenidos
 
-- [Introducción](#introduction)
-- [Características](#features)
-- [Comentarios](#feedback)
+- [Introducción](#Introducción)
+- [Características](#Características)
+- [Comentarios](#Comentarios)
 - [Contribuidores](#contributors)
-- [Proceso de Construcción](#build-process)
-- [NimoCoders](#nimocoders-)
-- [Patrocinadores](#sponsors-)
-- [Agradecimientos](#acknowledgments)
+- [Proceso-de-instalacion](#Proceso-de-instalacion)
+- [NimoCoders](#NimoCoders)
+- [Patrocinadores](#Patrocinadores)
+- [Agradecimientos](#Agradecimientos)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -73,7 +73,7 @@ Si hay algo de lo que te gustaría hablar, ¡siéntete libre de unirte a nuestro
 
 ## Proceso de Instalación 3 simple pasos 
 
-##EN LOCAL :
+ EN LOCAL :
 - Clona o descarga el repositorio
 git clone https://github.com/ripper21/MvcInmolab.git
 - Abre el WorkbenchSQL
