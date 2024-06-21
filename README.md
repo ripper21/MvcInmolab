@@ -24,7 +24,7 @@
 ## Tabla de Contenidos
 
 - [Introducción](#introducción)
-- [Características](#características)
+- [Características](#Características)
 - [Comentarios](#comentarios)
 - [Proceso de Instalación](#proceso-de-instalación)
 - [NimoCoders](#nimocoders)
@@ -47,7 +47,7 @@ Ver información del repositorio y del usuario, controlar tus notificaciones e i
   <img src="http://i.imgur.com/W93xFCP.png" width=700>
 </p>
 
-## Características [Características](#características)
+## Características [Características](#caracteristicas)
 
 Algunas de las cosas que puedes hacer con Inmolab:
 
