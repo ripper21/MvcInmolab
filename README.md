@@ -53,15 +53,14 @@ Ver información del repositorio y del usuario, controlar tus notificaciones e i
 
 Algunas de las cosas que puedes hacer con Inmolab:
 
-* Ver el feed de actividad del usuario
+* Ver el feed de actividad del empleado
 * Comunicarte en tus conversaciones de problemas y solicitudes de extracción
-* Cerrar o bloquear problemas
-* Aplicar etiquetas y asignar responsables
+* Cerrar o bloquear propiedades
+* Aplicar etiquetas y asignar captadores a propiedades
 * Revisar y fusionar solicitudes de extracción
-* Crear nuevos problemas
-* Marcar como favorito, seguir y bifurcar repositorios
-* Controlar tus notificaciones no leídas y en las que participas
-* Buscar fácilmente cualquier usuario o repositorio
+* Crear nuevos pisos , clientes,empleados 
+* Buscar fácilmente cualquier piso
+
 
 <p align="center">
   <img src = "http://i.imgur.com/HsvEeKo.png" width=700>
@@ -72,17 +71,18 @@ Algunas de las cosas que puedes hacer con Inmolab:
 
 Si hay algo de lo que te gustaría hablar, ¡siéntete libre de unirte a nuestro [chat de Gitter](https://gitter.im/git-point)!
 
-## Proceso de Instalación
+## Proceso de Instalación 3 simple pasos 
 
+##EN LOCAL :
 - Clona o descarga el repositorio
-- :::::
-- :::::
-- :::::
-- :::::
-- :::::
-- :::::
-- :::::
-- :::::
+git clone https://github.com/ripper21/MvcInmolab.git
+- Abre el WorkbenchSQL
+ Ve al proyecto y busca el archivo DDL y DML
+ Ejecutalo al workbench
+-Ve al proyecto 
+  Ejecuta como proyecto Spring App 
+  
+
 
 Por favor, consulta las [directrices de contribución](./CONTRIBUTING.md) para obtener un proceso detallado sobre cómo construir tu aplicación, así como información de resolución de problemas.
 
