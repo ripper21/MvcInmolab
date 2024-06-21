@@ -23,14 +23,13 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Tabla de Contenidos
 
-- [Introducción](#Introducción)
-- [Características](#Características)
-- [Comentarios](#Comentarios)
-- [Contribuidores](#contributors)
-- [Proceso-de-instalacion](#Proceso-de-instalacion)
-- [NimoCoders](#NimoCoders)
-- [Patrocinadores](#Patrocinadores)
-- [Agradecimientos](#Agradecimientos)
+- [Introducción](#introducción)
+- [Características](#características)
+- [Comentarios](#comentarios)
+- [Proceso de Instalación](#proceso-de-instalación)
+- [NimoCoders](#nimocoders)
+- [Patrocinadores](#patrocinadores)
+- [Agradecimientos](#agradecimientos)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -45,11 +44,10 @@ Ver información del repositorio y del usuario, controlar tus notificaciones e i
 **Disponible Todo tipo de Navegadores Web **
 
 <p align="center">
-  <img src = "http://i.imgur.com/W93xFCP.png" width=700>
-
+  <img src="http://i.imgur.com/W93xFCP.png" width=700>
 </p>
 
-## Características
+## Características [Características](#características)
 
 Algunas de las cosas que puedes hacer con Inmolab:
 
@@ -58,20 +56,19 @@ Algunas de las cosas que puedes hacer con Inmolab:
 * Cerrar o bloquear propiedades
 * Aplicar etiquetas y asignar captadores a propiedades
 * Revisar y fusionar solicitudes de extracción
-* Crear nuevos pisos , clientes,empleados 
+* Crear nuevos pisos, clientes, empleados 
 * Buscar fácilmente cualquier piso
 
-
 <p align="center">
-  <img src = "http://i.imgur.com/HsvEeKo.png" width=700>
+  <img src="http://i.imgur.com/HsvEeKo.png" width=700>
 </p>
-
 
 ## Comentarios
 
 Si hay algo de lo que te gustaría hablar, ¡siéntete libre de unirte a nuestro [chat de Gitter](https://gitter.im/git-point)!
 
-## Proceso de Instalación 3 simple pasos 
+## Proceso de Instalación 3 pasos 
+
 
  EN LOCAL :
 - Clona o descarga el repositorio
