@@ -4,8 +4,8 @@ import es.inmolab.demo.dto.Usuario;
 
 public interface UsuariosService {
 	
-	public Usuario crearUsuario(Usuario body);
+	Usuario crearUsuario(Usuario body);
 
-	public void guardar(Usuario registroDTO);
+	void guardar(Usuario registroDTO);
 
 }

@@ -13,7 +13,7 @@ import es.inmolab.demo.service.UsuariosService;
 @RequestMapping("/registro")
 public class RegistroUsuarioControlador {
 	
-	private UsuariosService usuarioService;
+	private final UsuariosService usuarioService;
 
 	public RegistroUsuarioControlador(UsuariosService usuarioService) {
 		super();
