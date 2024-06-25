@@ -86,3 +86,29 @@ CREATE TABLE JefeDepartamento (
     FOREIGN KEY (id_departamento) REFERENCES Departamentos(id_departamento),
     FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado)
 );
+
+  CREATE TABLE tipo_cliente (
+  id_registro INT (3) NOT NULL auto_increment ,
+  descripcion VARCHAR(150) NOT NULL,
+  PRIMARY KEY (id_registro)
+);
+
+  CREATE TABLE cliente (
+  id_cliente INT (3) NOT NULL auto_increment ,
+  nombre VARCHAR (100) NOT NULL ,
+  apellido VARCHAR (100)NOT NULL,
+  direccion VARCHAR (250)NOT NULL,
+  correo VARCHAR (100)NOT NULL,
+  telefono int (11)NOT NULL,
+  fech_nac DATE,
+  nif VARCHAR (50) NOT NULL,
+  tipo_cliente INT (3) NOT NULL,
+  PRIMARY KEY (id_cliente),
+  FOREIGN KEY (tipo_cliente) REFERENCES Empleados(id_registro)
+
+);
+
+
+
+
+

@@ -120,3 +120,27 @@ INSERT INTO JefeDepartamento (id_departamento, id_empleado) VALUES
 (9, 9),
 (10, 10);
 
+
+INSERT INTO cliente (nombre, apellido, direccion, correo, telefono, fech_nac, nif, tipo_cliente) VALUES
+('Juan', 'Pérez', 'Calle 123', 'juan.perez@example.com', 1234567890, '1990-01-01', 'X1234567A', 1),
+('Ana', 'García', 'Avenida Siempreviva 742', 'ana.garcia@example.com', 1234567891, '1985-02-02', 'Y2345678B', 2),
+('Luis', 'Martínez', 'Boulevard de los Sueños Rotos 10', 'luis.martinez@example.com', 1234567892, '1978-03-03', 'Z3456789C', 3),
+('María', 'López', 'Calle Falsa 123', 'maria.lopez@example.com', 1234567893, '1982-04-04', 'A4567890D', 1),
+('Carlos', 'Sánchez', 'Avenida Libertad 55', 'carlos.sanchez@example.com', 1234567894, '1991-05-05', 'B5678901E', 2),
+('Laura', 'Fernández', 'Calle Mayor 1', 'laura.fernandez@example.com', 1234567895, '1983-06-06', 'C6789012F', 3),
+('Jorge', 'Gómez', 'Avenida de la Constitución 78', 'jorge.gomez@example.com', 1234567896, '1979-07-07', 'D7890123G', 1),
+('Sofía', 'Morales', 'Calle del Prado 11', 'sofia.morales@example.com', 1234567897, '1992-08-08', 'E8901234H', 2),
+('Miguel', 'Hernández', 'Paseo de la Castellana 101', 'miguel.hernandez@example.com', 1234567898, '1986-09-09', 'F9012345I', 3),
+('Lucía', 'Díaz', 'Callejón del Beso 3', 'lucia.diaz@example.com', 1234567899, '1993-10-10', 'G0123456J', 1),
+('David', 'Ruiz', 'Avenida América 56', 'david.ruiz@example.com', 1234567800, '1981-11-11', 'H1234567K', 2),
+('Isabel', 'Torres', 'Callejón del Gato 13', 'isabel.torres@example.com', 1234567801, '1987-12-12', 'I2345678L', 3),
+('Fernando', 'Ramírez', 'Plaza Mayor 6', 'fernando.ramirez@example.com', 1234567802, '1990-01-13', 'J3456789M', 1),
+('Patricia', 'Flores', 'Avenida del Mar 21', 'patricia.flores@example.com', 1234567803, '1984-02-14', 'K4567890N', 2),
+('Sergio', 'Jiménez', 'Calle de la Luna 7', 'sergio.jimenez@example.com', 1234567804, '1989-03-15', 'L5678901O', 3),
+('Marta', 'Ortega', 'Paseo del Río 9', 'marta.ortega@example.com', 1234567805, '1994-04-16', 'M6789012P', 1),
+('Álvaro', 'Navarro', 'Avenida del Sol 12', 'alvaro.navarro@example.com', 1234567806, '1980-05-17', 'N7890123Q', 2),
+('Elena', 'Castro', 'Calle del Olmo 18', 'elena.castro@example.com', 1234567807, '1991-06-18', 'O8901234R', 3),
+('Andrés', 'Vega', 'Avenida de los Pinos 23', 'andres.vega@example.com', 1234567808, '1983-07-19', 'P9012345S', 1),
+('Clara', 'Molina', 'Calle del Sauce 24', 'clara.molina@example.com', 1234567809, '1992-08-20', 'Q0123456T', 2);
+
+

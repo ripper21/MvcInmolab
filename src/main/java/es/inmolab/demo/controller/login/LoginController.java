@@ -1,4 +1,4 @@
-package es.inmolab.demo.controller;
+package es.inmolab.demo.controller.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

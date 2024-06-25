@@ -23,14 +23,34 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_cliente")
 	private Long idCliente;
+	
+	@Column(name = "nombre")
 	private String nombre;
+	
+	@Column(name = "apellido")
 	private String apellido;
-	private String codigoPostal;
-	private String Calle;
-	private int numeroCalle;
+	
+	@Column(name = "direccion")
+	private String direccion;
+	
+	@Column(name = "correo")
 	private String correo;
+	
+	@Column(name = "telefono")
 	private int telefono;
+	
+	@Column(name = "fech_nac")
 	private Date FechaNacimiento;
+	
+	@Column(name = "nif")
 	private String nif;
+	
+	@Column(name = "tipo_cliente")
+	private int tipoCliente;
+
+	
+	
+	
+	
 
 }
