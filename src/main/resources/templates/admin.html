@@ -13,6 +13,7 @@
     <div sec:authorize="hasRole('ADMIN')">
         <h2>Volver a Index</h2>
         <a th:href="@{/}">Volver</a>
+        <h1 th:text="#{index.hello}" >texto</h1>
     </div>
 </body>
 </html>
