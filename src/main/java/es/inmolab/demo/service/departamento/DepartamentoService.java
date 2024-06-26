@@ -1,4 +1,4 @@
-package es.inmolab.demo.service;
+package es.inmolab.demo.service.departamento;
 
 import java.util.List;
 

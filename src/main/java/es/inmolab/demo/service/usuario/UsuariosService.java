@@ -1,4 +1,4 @@
-package es.inmolab.demo.service;
+package es.inmolab.demo.service.usuario;
 
 import es.inmolab.demo.dto.Usuario;
 

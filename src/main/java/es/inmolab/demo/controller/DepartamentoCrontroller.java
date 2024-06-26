@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import es.inmolab.demo.entity.Departamento;
-import es.inmolab.demo.service.DepartamentoService;
+import es.inmolab.demo.service.departamento.DepartamentoService;
 @Controller
 @RequestMapping("/departamentos")
 public class DepartamentoCrontroller {

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import es.inmolab.demo.entity.Empleado;
 import es.inmolab.demo.repository.ClienteRepository;
-import es.inmolab.demo.service.EmpleadoService;
+import es.inmolab.demo.service.empleado.EmpleadoService;
 
 @Controller
 @RequestMapping("/empleados")

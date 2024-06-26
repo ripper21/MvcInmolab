@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import es.inmolab.demo.dto.Usuario;
-import es.inmolab.demo.service.UsuariosService;
+import es.inmolab.demo.service.usuario.UsuariosService;
 
 @Controller
 @RequestMapping("/registro")

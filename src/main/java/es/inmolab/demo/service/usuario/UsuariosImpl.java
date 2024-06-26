@@ -1,4 +1,4 @@
-package es.inmolab.demo.service;
+package es.inmolab.demo.service.usuario;
 
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
