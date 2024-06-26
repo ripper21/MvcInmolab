@@ -18,23 +18,21 @@ public class ClienteImpl implements ClienteService {
     private static final Logger log = LoggerFactory.getLogger(ClienteImpl.class);
     private final ClienteRepository clienteRepository;
 
-
-
     @Autowired
     public ClienteImpl(ClienteRepository clienteRepository, BCryptPasswordEncoder passwordEncoder,
                         ModelMapper modelMapper) {
         this.clienteRepository = clienteRepository;
     }
 
+    @Override
+    public List<Cliente> obtieneClientesPorTipo(Model model) {
+        log.info("[obtieneClientesPorTipo] : OBTIENE CLIENTES POR TIPO");
+        String tipoCliente = (String) model.getAttribute("tipoCliente");
+        return clienteRepository.encontrarClientePorTipo(tipoCliente);
+    }
 
-
-	@Override
-	public List<Cliente> obtieneClientesPorTipo(Model model) {
-		log.info("[obtieneClientesPorTipo] : OBTIENE CLIENTES POR TIPO");
-		String tipoCliente = (String) model.getAttribute("tipoCliente");
-		return clienteRepository.encontrarClientePorTipo(tipoCliente);
-		
-	
-	}
-
+    @Override
+    public void saveCliente(Cliente cliente) {
+        clienteRepository.save(cliente);
+    }
 }
