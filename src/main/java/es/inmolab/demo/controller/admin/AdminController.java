@@ -1,4 +1,4 @@
-package es.inmolab.demo.controller;
+package es.inmolab.demo.controller.admin;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
