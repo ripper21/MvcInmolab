@@ -37,7 +37,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 	public Empleado getEmpleadoById(Long id) throws ServiceException {
 		Optional<Empleado> empleadoOptional = empleadoRepository.findById(id);
 		log.info("[getEmpleadoById]");
-		log.debug("[ID DE EMPLEADO]:" + id + "]");
+		log.debug("[BUSCANDO EMPLEADO PRO ID ]:" + id + "]");
 		Empleado empleado = null;
 		try {
 			Optional<Empleado> empleadoDummy = empleadoRepository.findById(id);
@@ -47,11 +47,11 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 		} catch (ServiceException se) {
 			log.error("[SERVICIO EXCEPTION]", se);
 			throw se;
-			// TODO: handle exception
+			
 		} catch (Exception e) {
 			log.error("[ERROR GENERAL]", e);
 			throw new ServiceException(ErrorCode.ERROR_GENERAL);
-			// TODO: handle exception
+			
 		}
 
 		return empleado;
@@ -60,19 +60,42 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 	@Override
 	public void saveEmpleado(Empleado empleado)throws ServiceException  {
 		log.info("[saveEmpleado]");
-		log.info("[EMPLEADO]" +empleado.toString()+"]");
+		log.info("[EMPLEADO GUARDADO]" +empleado.toString()+"]");
 		try {
-			empleadoRepository.save(empleado);
+			 empleadoRepository.save(empleado);
 		} catch ( Exception e) {
 			log.error("[ERROR GENERAL]",e);
 			throw new ServiceException(ErrorCode.ERROR_GENERAL);
-			// TODO: handle exception
+			
 		}
-		empleadoRepository.save(empleado);
+		 
 	}
 
 	@Override
-	public void deleteEmpleado(Long id) {
-		empleadoRepository.deleteById(id);
+	public void deleteEmpleado(Long id) throws ServiceException   {
+		log.info("[ELIMINAR EMPLEADO ]");
+		log.debug("[EMPLEADO ELIMINADO POR id:"+id+"]");
+		try {
+			empleadoRepository.deleteById(id);
+		}catch(Exception e) {
+			log.error("[ERROR GENERAL]",e);
+			throw new ServiceException(ErrorCode.ERROR_GENERAL);
+		}
+		
 	}
+	@Override
+	public void upgradeEmpleado(Empleado empleado) throws ServiceException   {
+		log.info("[MODIFICAR EMPLEADO ]");
+		log.debug("[MODIFICAR ELIMINADO :"+empleado.toString()+"]");
+		try {
+			empleadoRepository.save(empleado);
+		}catch(Exception e) {
+			log.error("[ERROR GENERAL]",e);
+			throw new ServiceException(ErrorCode.ERROR_GENERAL);
+		}
+		
+	}
+
+
+	
 }
