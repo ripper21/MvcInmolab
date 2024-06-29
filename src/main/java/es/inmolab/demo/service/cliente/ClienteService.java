@@ -13,6 +13,7 @@ public interface ClienteService {
 	void saveCliente(Cliente cliente);
 	void deleteCliente(Long id) throws ServiceException;
 	void upgradeCliente(Cliente cliente) throws ServiceException;
+	List<Cliente> getAllClientes() throws ServiceException;
 	
 
 }

@@ -86,13 +86,13 @@ CREATE TABLE JefeDepartamento (
     FOREIGN KEY (id_departamento) REFERENCES Departamentos(id_departamento),
     FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado)
 );
-
+-- Creación de la tabla 'tipo_cliente'
   CREATE TABLE tipo_cliente (
   id_registro INT (3) NOT NULL auto_increment ,
   descripcion VARCHAR(150) NOT NULL,
   PRIMARY KEY (id_registro)
 );
-
+-- Creación de la tabla 'cliente'
   CREATE TABLE cliente (
   id_cliente INT (3) NOT NULL auto_increment ,
   nombre VARCHAR (100) NOT NULL ,
@@ -107,6 +107,38 @@ CREATE TABLE JefeDepartamento (
   FOREIGN KEY (tipo_cliente) REFERENCES Empleados(id_registro)
 
 );
+
+-- Creación de la tabla 'propiedades'
+CREATE TABLE propiedades (
+    id_propiedad INT AUTO_INCREMENT PRIMARY KEY,
+    fech_captacion DATE,
+    cod_postal INT,
+	num_calle VARCHAR(10),
+    calle VARCHAR(255),
+    planta INT(2),
+    portal VARCHAR(5),
+    id_empleado INT,  -- Asumiendo que tienes una tabla de empleados
+    FOREIGN KEY (id_empleado) REFERENCES empleados(id_empleado)  -- Ajusta según tu diseño
+);
+
+-- Creación de la tabla 'caracteristicas_de_la_propiedad'
+CREATE TABLE caracteristicas_de_la_propiedad (
+    id_caracteristica INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL
+);
+
+-- Creación de la tabla de unión 'propiedades_caracteristicas' para la relación muchos a muchos
+CREATE TABLE propiedades_caracteristicas (
+    id_propiedad INT,
+    id_caracteristica INT,
+    cantidad INT DEFAULT 1,
+    PRIMARY KEY (id_propiedad, id_caracteristica),
+    FOREIGN KEY (id_propiedad) REFERENCES propiedades(id_propiedad),
+    FOREIGN KEY (id_caracteristica) REFERENCES caracteristicas_de_la_propiedad(id_caracteristica)
+);
+
+
+
 
 
 
