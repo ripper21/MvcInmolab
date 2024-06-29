@@ -27,7 +27,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 		try {
 			empleados = empleadoRepository.findAll();
 		} catch (Exception e) {
-			log.error("ERROR GENERAL DESDE EMPLIMENTACION EMPLEADO SERVICE", e);
+			log.error("ERROR GENERAL DESDE  EMPLEADO SERVICE", e);
 			throw new ServiceException(ErrorCode.ERROR_GENERAL);
 		}
 		return empleados;
@@ -35,27 +35,27 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 
 	@Override
 	public Empleado getEmpleadoById(Long id) throws ServiceException {
-		Optional<Empleado> empleadoOptional = empleadoRepository.findById(id);
-		log.info("[getEmpleadoById]");
-		log.debug("[BUSCANDO EMPLEADO PRO ID ]:" + id + "]");
-		Empleado empleado = null;
-		try {
-			Optional<Empleado> empleadoDummy = empleadoRepository.findById(id);
-			if (!empleadoDummy.isPresent())
-				throw new ServiceException(ErrorCode.NO_FOUND_CASA);
-			empleado = empleadoDummy.get();
-		} catch (ServiceException se) {
-			log.error("[SERVICIO EXCEPTION]", se);
-			throw se;
-			
-		} catch (Exception e) {
-			log.error("[ERROR GENERAL]", e);
-			throw new ServiceException(ErrorCode.ERROR_GENERAL);
-			
-		}
+	    log.info("[getEmpleadoById]");
+	    log.debug("[BUSCANDO EMPLEADO POR ID]: " + id);
 
-		return empleado;
+	    Empleado empleado = null;
+	    try {
+	        Optional<Empleado> empleadoOptional = empleadoRepository.findById(id);
+	        if (!empleadoOptional.isPresent()) {
+	            throw new ServiceException(ErrorCode.EMPLEADO_NO_ENCONTRADO);
+	        }
+	        empleado = empleadoOptional.get();
+	    } catch (ServiceException se) {
+	        log.error("[SERVICIO EXCEPTION]", se);
+	        throw se;
+	    } catch (Exception e) {
+	        log.error("[ERROR GENERAL]", e);
+	        throw new ServiceException(ErrorCode.ERROR_GENERAL);
+	    }
+
+	    return empleado;
 	}
+
 
 	@Override
 	public void saveEmpleado(Empleado empleado)throws ServiceException  {

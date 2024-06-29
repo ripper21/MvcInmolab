@@ -1,5 +1,7 @@
 package es.inmolab.demo.entity;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,18 +13,30 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "tipo_cliente")
+@Table(name = "propiedades")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TipoCliente {
+public class Propiedades {
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_tipo_cliente")
-	private Long idRegistro;
-
-	@Column(name = "descripcion")
-	private String descripcion;
+	@Column(name = "id_propeidad")
+	private Long idPropiedad;
+	
+	@Column(name = "fech_captacion")
+	private Date FechaCaptacion;
+	
+	@Column(name = "cod_postal")
+	private int codigoPostal;
+	
+	@Column(name = "calle")
+	private String calle;
+	
+	@Column(name = "num_calle")
+	private int numeroCalle;
+	
+	
 
 }
