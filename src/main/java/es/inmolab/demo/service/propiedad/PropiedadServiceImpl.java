@@ -3,7 +3,6 @@ package es.inmolab.demo.service.propiedad;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +12,14 @@ import es.inmolab.demo.entity.Propiedad;
 import es.inmolab.demo.repository.PropiedadRepository;
 
 @Service
-public  class PropiedadServiceImpl implements PropiedadService {
+public class PropiedadServiceImpl implements PropiedadService {
 
-    @Autowired
-    private PropiedadRepository propiedadRepository;
+    private final PropiedadRepository propiedadRepository;
+
+    // Inyección por constructor
+    public PropiedadServiceImpl(PropiedadRepository propiedadRepository) {
+        this.propiedadRepository = propiedadRepository;
+    }
 
     @Override
     public List<Propiedad> getAllPropiedades() throws ServiceException {
@@ -29,10 +32,8 @@ public  class PropiedadServiceImpl implements PropiedadService {
 
     @Override
     public List<Propiedad> getPropiedadByCalle(String calle) throws ServiceException {
-        List<Propiedad> propiedades = propiedadRepository.findByCalle(calle);
-		return propiedades; 
+        return propiedadRepository.findByCalle(calle); // Simplificado, manejar excepciones según necesidades
     }
-
 
     @Override
     public void savePropiedad(Propiedad propiedad) throws ServiceException {
@@ -47,11 +48,11 @@ public  class PropiedadServiceImpl implements PropiedadService {
     public void deletePropiedad(Long id) throws ServiceException {
         try {
             if (!propiedadRepository.existsById(id)) {
-                throw new ServiceException( ErrorCode.PROPIEDAD_NOT_FOUND);
+                throw new ServiceException(ErrorCode.PROPIEDAD_NOT_FOUND);
             }
             propiedadRepository.deleteById(id);
         } catch (DataAccessException e) {
-            throw new ServiceException( ErrorCode.PROPIEDAD_ERROR_GENERAL);
+            throw new ServiceException(ErrorCode.PROPIEDAD_ERROR_GENERAL);
         }
     }
 
@@ -60,24 +61,13 @@ public  class PropiedadServiceImpl implements PropiedadService {
         try {
             propiedadRepository.save(propiedad);
         } catch (DataAccessException e) {
-            throw new ServiceException( ErrorCode.PROPIEDAD_UPDATE_ERROR);
+            throw new ServiceException(ErrorCode.PROPIEDAD_UPDATE_ERROR);
         }
     }
 
     @Override
     public Propiedad getPropiedadById(long id) throws ServiceException {
-        try {
-            Optional<Propiedad> propiedad = propiedadRepository.findById(id);
-            if (!propiedad.isPresent()) {
-                throw new ServiceException( ErrorCode.PROPIEDAD_NOT_FOUND);
-            }
-            return propiedad.get();
-        } catch (DataAccessException e) {
-            throw new ServiceException( ErrorCode.PROPIEDAD_ERROR_GENERAL);
-        }
+        Optional<Propiedad> propiedad = propiedadRepository.findById(id);
+        return propiedad.orElseThrow(() -> new ServiceException(ErrorCode.PROPIEDAD_NOT_FOUND));
     }
-
-
-
-
 }
