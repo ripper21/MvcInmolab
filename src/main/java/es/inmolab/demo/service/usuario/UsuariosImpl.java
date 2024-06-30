@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import es.inmolab.demo.dto.Usuario;
+import es.inmolab.demo.dto.login.Usuario;
 import es.inmolab.demo.entity.UsuariosEntity;
 import es.inmolab.demo.repository.UsuariosRepository;
 

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import es.inmolab.demo.dto.Usuario;
+import es.inmolab.demo.dto.login.Usuario;
 import es.inmolab.demo.service.usuario.UsuariosService;
 
 @Controller

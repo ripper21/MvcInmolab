@@ -1,6 +1,6 @@
 package es.inmolab.demo.service.usuario;
 
-import es.inmolab.demo.dto.Usuario;
+import es.inmolab.demo.dto.login.Usuario;
 
 public interface UsuariosService {
 	

@@ -24,6 +24,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 	public List<Empleado> getAllEmpleados() throws ServiceException {
 		log.info("[getAllEmpleados]");
 		List<Empleado> empleados = new ArrayList<Empleado>();
+		log.info("[empleados:" + empleados + "]");
 		try {
 			empleados = empleadoRepository.findAll();
 		} catch (Exception e) {

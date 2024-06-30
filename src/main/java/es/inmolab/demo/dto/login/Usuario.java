@@ -1,4 +1,4 @@
-package es.inmolab.demo.dto;
+package es.inmolab.demo.dto.login;
 import lombok.Data;
 
 @Data

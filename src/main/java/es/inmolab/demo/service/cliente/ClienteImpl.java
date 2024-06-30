@@ -30,6 +30,7 @@ public class ClienteImpl implements ClienteService {
         List<Cliente> clientes = new ArrayList<>();
         try {
             clientes = clienteRepository.findAll();
+            log.info("[clientes:" + clientes + "]");
         } catch (Exception e) {
             log.error("ERROR GENERAL DESDE CLIENTE SERVICE", e);
             throw new ServiceException(ErrorCode.ERROR_GENERAL);
@@ -45,6 +46,7 @@ public class ClienteImpl implements ClienteService {
         
         try {
             clientes = clienteRepository.encontrarClientePorTipo(tipoCliente);
+            log.info("[clientes:" + clientes + "]");
             if (clientes == null || clientes.isEmpty()) {
                 throw new ServiceException(ErrorCode.CLIENTE_NO_ENCONTRADO);
             }
