@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import es.inmolab.demo.dto.login.Usuario;
+import es.inmolab.demo.dto.UsuarioDto;
 import es.inmolab.demo.entity.UsuariosEntity;
 import es.inmolab.demo.repository.UsuariosRepository;
 
@@ -27,7 +27,7 @@ public class UsuariosImpl implements UsuariosService {
     }
 
     @Override
-    public Usuario crearUsuario(Usuario body) {
+    public UsuarioDto crearUsuario(UsuarioDto body) {
         log.info("crearUsuario");
         log.debug("body: {}", body);
         try {
@@ -42,7 +42,7 @@ public class UsuariosImpl implements UsuariosService {
     }
 
     @Override
-    public void guardar(Usuario registroDTO) {
+    public void guardar(UsuarioDto registroDTO) {
         // Implementación o eliminación del método si no se usa
     }
 }

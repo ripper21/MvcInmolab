@@ -1,4 +1,4 @@
-package es.inmolab.demo.dto.propiedad;
+package es.inmolab.demo.dto;
 
 
 import java.util.Date;
@@ -13,7 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class PropiedadDTO {
+public class PropiedadDto {
 
     private Long idPropiedad;
     private Date fechCaptacion;

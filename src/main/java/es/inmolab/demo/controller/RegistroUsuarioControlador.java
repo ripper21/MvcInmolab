@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import es.inmolab.demo.dto.login.Usuario;
+import es.inmolab.demo.dto.UsuarioDto;
 import es.inmolab.demo.service.usuario.UsuariosService;
 
 @Controller
@@ -21,8 +21,8 @@ public class RegistroUsuarioControlador {
 	}
 	
 	@ModelAttribute("usuario")
-	public Usuario retornaNuevoUsarioRegistroDTO() {
-		return new Usuario();
+	public UsuarioDto retornaNuevoUsarioRegistroDTO() {
+		return new UsuarioDto();
 		
 	}
 
@@ -32,7 +32,7 @@ public class RegistroUsuarioControlador {
 	}
 	
 	@PostMapping
-	public String registrarCuentaDeUsuario( @ModelAttribute("usuario") Usuario registroDTO) {
+	public String registrarCuentaDeUsuario( @ModelAttribute("usuario") UsuarioDto registroDTO) {
 		usuarioService.guardar(registroDTO);
 		return "redirect:/registro?exito";
 		

@@ -1,8 +1,8 @@
-package es.inmolab.demo.dto.login;
+package es.inmolab.demo.dto;
 import lombok.Data;
 
 @Data
-public class Usuario {
+public class UsuarioDto {
 	
 	private String username;
 

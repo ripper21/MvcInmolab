@@ -4,14 +4,15 @@ import java.util.List;
 
 import org.hibernate.service.spi.ServiceException;
 
+import es.inmolab.demo.dto.EmpleadoDto;
 import es.inmolab.demo.entity.Empleado;
 
 
 public interface EmpleadoService {
 
-	List<Empleado> getAllEmpleados()throws ServiceException;
+	List<EmpleadoDto> getAllEmpleados()throws ServiceException;
 
-	Empleado getEmpleadoById(Long id)throws ServiceException;
+	EmpleadoDto getEmpleadoById(Long id)throws ServiceException;
 
 	void saveEmpleado(Empleado empleado)throws ServiceException;
 

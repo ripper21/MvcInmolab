@@ -1,11 +1,11 @@
 package es.inmolab.demo.service.usuario;
 
-import es.inmolab.demo.dto.login.Usuario;
+import es.inmolab.demo.dto.UsuarioDto;
 
 public interface UsuariosService {
 	
-	Usuario crearUsuario(Usuario body);
+	UsuarioDto crearUsuario(UsuarioDto body);
 
-	void guardar(Usuario registroDTO);
+	void guardar(UsuarioDto registroDTO);
 
 }
