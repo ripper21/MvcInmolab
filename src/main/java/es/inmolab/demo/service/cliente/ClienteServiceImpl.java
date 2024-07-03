@@ -1,45 +1,29 @@
 package es.inmolab.demo.service.cliente;
 
-import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.service.spi.ServiceException;
-import org.modelmapper.ModelMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
+
 import es.inmolab.demo.common.exception.ErrorCode;
+import es.inmolab.demo.common.exception.ServiceException;
 import es.inmolab.demo.entity.Cliente;
 import es.inmolab.demo.repository.ClienteRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class ClienteImpl implements ClienteService {
-   
-    @Autowired
+public class ClienteServiceImpl implements ClienteService {
+
     private final ClienteRepository clienteRepository;
 
-    public ClienteImpl(ClienteRepository clienteRepository) {
+    @Autowired
+    public ClienteServiceImpl(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
-    
+
     @Override
-    public List<Cliente> getAllClientes() throws ServiceException {
-        log.info("[getAllClientes]");
-        List<Cliente> clientes = new ArrayList<>();
-        try {
-            clientes = clienteRepository.findAll();
-            log.info("[clientes:" + clientes + "]");
-        } catch (Exception e) {
-            log.error("ERROR GENERAL DESDE CLIENTE SERVICE", e);
-            throw new ServiceException(ErrorCode.ERROR_GENERAL);
-        }
-        return clientes;
-    }
-    
-    @Override
-    public List<Cliente> obtieneClientesPorTipo(String tipoCliente) {
+    public List<Cliente> obtieneClientesPorTipo(String tipoCliente) throws ServiceException {
         log.info("[obtieneClientesPorTipo] : OBTIENE CLIENTES POR TIPO");
         List<Cliente> clientes = null;
         
@@ -47,14 +31,14 @@ public class ClienteImpl implements ClienteService {
             clientes = clienteRepository.encontrarClientePorTipo(tipoCliente);
             log.info("[clientes:" + clientes + "]");
             if (clientes == null || clientes.isEmpty()) {
-                throw new ServiceException(ErrorCode.CLIENTE_NO_ENCONTRADO);
+                throw new ServiceException("Cliente no encontrado", ErrorCode.CLIENTE_NO_ENCONTRADO);
             }
         } catch (ServiceException se) {
             log.error("[SERVICIO EXCEPTION]", se);
             throw se;
         } catch (Exception e) {
             log.error("[ERROR GENERAL]", e);
-            throw new ServiceException(ErrorCode.ERROR_GENERAL);
+            throw new ServiceException("Error general", ErrorCode.ERROR_GENERAL);
         }
 
         return clientes;
@@ -68,10 +52,10 @@ public class ClienteImpl implements ClienteService {
             clienteRepository.save(cliente);
         } catch (Exception e) {
             log.error("[ERROR GENERAL]", e);
-            throw new ServiceException(ErrorCode.ERROR_GENERAL);
+            throw new ServiceException("Error al guardar cliente", ErrorCode.ERROR_GENERAL);
         }
     }
-    
+
     @Override
     public void deleteCliente(Long id) throws ServiceException {
         log.info("[ELIMINAR CLIENTE]");
@@ -80,10 +64,10 @@ public class ClienteImpl implements ClienteService {
             clienteRepository.deleteById(id);
         } catch (Exception e) {
             log.error("[ERROR GENERAL]", e);
-            throw new ServiceException(ErrorCode.ERROR_GENERAL);
+            throw new ServiceException("Error al eliminar cliente", ErrorCode.ERROR_GENERAL);
         }
     }
-    
+
     @Override
     public void upgradeCliente(Cliente cliente) throws ServiceException {
         log.info("[MODIFICAR CLIENTE]");
@@ -92,7 +76,21 @@ public class ClienteImpl implements ClienteService {
             clienteRepository.save(cliente);
         } catch (Exception e) {
             log.error("[ERROR GENERAL]", e);
-            throw new ServiceException(ErrorCode.ERROR_GENERAL);
+            throw new ServiceException("Error al modificar cliente", ErrorCode.ERROR_GENERAL);
         }
+    }
+
+    @Override
+    public List<Cliente> getAllClientes() throws ServiceException {
+        log.info("[getAllClientes]");
+        List<Cliente> clientes = null;
+        try {
+            clientes = clienteRepository.findAll();
+            log.info("[clientes:" + clientes + "]");
+        } catch (Exception e) {
+            log.error("[ERROR GENERAL]", e);
+            throw new ServiceException("Error al obtener todos los clientes", ErrorCode.ERROR_GENERAL);
+        }
+        return clientes;
     }
 }

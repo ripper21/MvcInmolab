@@ -5,6 +5,8 @@
     <title>Administrador</title>
 </head>
 <body>
+<!-- Barra de navegacion  -->
+<div th:replace="fragments/navbar :: navbar"></div>
     <h2>Bienvenido Administrador</h2>
     
     <p>Username: <span sec:authentication="name"></span></p>

@@ -12,8 +12,6 @@ import es.inmolab.demo.entity.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
-	 @Query("SELECT c FROM Cliente c INNER JOIN TipoCliente tc ON tc.idRegistro = c.tipoCliente WHERE tc.descripcion = :tipoCliente")
-	    List<Cliente> encontrarClientePorTipo(@Param("tipoCliente") String tipoCliente);
-	
-
+    @Query("SELECT c FROM Cliente c WHERE c.tipoCliente.descripcion = :tipoCliente")
+    List<Cliente> encontrarClientePorTipo(@Param("tipoCliente") String tipoCliente);
 }

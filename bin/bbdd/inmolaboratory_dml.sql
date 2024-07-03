@@ -143,4 +143,88 @@ INSERT INTO cliente (nombre, apellido, direccion, correo, telefono, fech_nac, ni
 ('Andrés', 'Vega', 'Avenida de los Pinos 23', 'andres.vega@example.com', 1234567808, '1983-07-19', 'P9012345S', 1),
 ('Clara', 'Molina', 'Calle del Sauce 24', 'clara.molina@example.com', 1234567809, '1992-08-20', 'Q0123456T', 2);
 
+INSERT INTO caracteristicas_de_la_propiedad (nombre) VALUES
+('Planta'),
+('Metros Usables'),
+('Metros de construcción'),
+('Año de construcción'),
+('Salón'),
+('Cocina'),
+('Baños'),
+('Habitaciones'),
+('Garajes'),
+('Oficina'),
+('Área de servicio'),
+('Patios'),
+('Muebles'),
+('ConsumoKW'),
+('EmisionCO2');
+
+INSERT INTO empleados (nombre, apellido, telefono, fechNac, correo, nif, ssNum) VALUES
+('Juan', 'Pérez', 1234567890, '1980-05-15', 'juan.perez@example.com', '12345678P', 987654321),
+('Laura', 'García', 2345678901, '1985-08-25', 'laura.garcia@example.com', '87654321L', 876543210),
+('Carlos', 'Martínez', 3456789012, '1990-01-30', 'carlos.martinez@example.com', '76543210C', 765432109),
+('Elena', 'Nito', 4567890123, '1975-12-10', 'elena.nito@example.com', '65432109E', 654321098),
+('Marcos', 'Gómez', 5678901234, '1982-07-24', 'marcos.gomez@example.com', '54321098M', 543210987),
+('Ana', 'López', 6789012345, '1992-11-19', 'ana.lopez@example.com', '43210987A', 432109876),
+('David', 'Jiménez', 7890123456, '1978-02-17', 'david.jimenez@example.com', '32109876D', 321098765),
+('Sara', 'Morales', 8901234567, '1989-09-09', 'sara.morales@example.com', '21098765S', 210987654),
+('Oscar', 'Ruiz', 9012345678, '1995-03-28', 'oscar.ruiz@example.com', '10987654O', 109876543),
+('Marta', 'Hernández', 1234567890, '1986-06-18', 'marta.hernandez@example.com', '09876543M', 987654321);
+
+INSERT INTO propiedades (fech_captacion, cod_postal, calle, num_calle, id_empleado, planta, portal)
+VALUES 
+('2023-06-01', 28013, 'Gran Via', '42', 1, 1, 'A'),
+('2023-06-02', 28014, 'Calle Mayor', '85', 2, 2, 'B'),
+('2023-06-03', 28015, 'Paseo del Prado', '59', 3, 3, 'C'),
+('2023-06-04', 28016, 'Calle de Alcalá', '134', 4, 4, 'D'),
+('2023-06-05', 28017, 'Avenida de América', '21', 5, 5, 'E'),
+('2023-06-06', 28018, 'Calle de Serrano', '3', 6, 6, 'F'),
+('2023-06-07', 28019, 'Calle de Bravo Murillo', '291', 7, 7, 'G'),
+('2023-06-08', 28020, 'Calle de Fuencarral', '47', 8, 8, 'H'),
+('2023-06-09', 28021, 'Calle de Goya', '9', 9, 1, 'I'),
+('2023-06-10', 28022, 'Calle de Atocha', '125', 10, 2, 'J');
+
+
+-- Suponiendo que la primera propiedad tiene dos baños, tres habitaciones y un garaje
+INSERT INTO propiedades_caracteristicas (id_propiedad, id_caracteristica, cantidad) VALUES
+(1, 7, 2), -- Baños
+(1, 8, 3), -- Habitaciones
+(1, 9, 1); -- Garaje
+
+-- La segunda propiedad tiene cocina, patio y muebles
+INSERT INTO propiedades_caracteristicas (id_propiedad, id_caracteristica, cantidad) VALUES
+(2, 6, 1), -- Cocina
+(2, 12, 1), -- Patio
+(2, 13, 5); -- Muebles
+
+-- La tercera propiedad tiene oficina y área de servicio
+INSERT INTO propiedades_caracteristicas (id_propiedad, id_caracteristica, cantidad) VALUES
+(3, 10, 1), -- Oficina
+(3, 11, 1); -- Área de servicio
+
+-- Confirma que puedes obtener una propiedad y sus caracteristicas 
+SELECT 
+    p.calle,
+    p.num_calle,
+    p.planta,
+    p.portal,
+    cp.nombre AS Caracteristica,
+    pc.cantidad AS Cantidad
+FROM 
+    propiedades p
+JOIN 
+    propiedades_caracteristicas pc ON p.id_propiedad = pc.id_propiedad
+JOIN 
+    caracteristicas_de_la_propiedad cp ON pc.id_caracteristica = cp.id_caracteristica
+WHERE 
+    p.calle = 'Gran Vía' AND 
+    p.num_calle = '42' AND 
+    p.planta = 2 AND 
+    p.portal = 'A'
+ORDER BY 
+    p.calle, p.num_calle, p.planta, p.portal, cp.nombre;
+
+
+
 

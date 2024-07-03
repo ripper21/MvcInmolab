@@ -22,33 +22,33 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Cliente {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cliente")
-    private Long idCliente;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_cliente")
+	private Long idCliente;
 
-    @Column(name = "nombre")
-    private String nombre;
+	@Column(name = "nombre")
+	private String nombre;
 
-    @Column(name = "apellido")
-    private String apellido;
+	@Column(name = "apellido")
+	private String apellido;
 
-    @Column(name = "direccion")
-    private String direccion;
+	@Column(name = "direccion")
+	private String direccion;
 
-    @Column(name = "correo")
-    private String correo;
+	@Column(name = "correo")
+	private String correo;
 
-    @Column(name = "telefono")
-    private int telefono;
+	@Column(name = "telefono")
+	private int telefono;
 
-    @Column(name = "fech_nac")
-    private Date FechaNacimiento;
+	@Column(name = "fech_nac")
+	private Date fechaNacimiento;
 
-    @Column(name = "nif")
-    private String nif;
+	@Column(name = "nif")
+	private String nif;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tipo_cliente", referencedColumnName = "id_tipo_cliente")
-    private TipoCliente tipoCliente;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "tipo_cliente", referencedColumnName = "id_tipo_cliente")
+	private TipoCliente tipoCliente;
 }

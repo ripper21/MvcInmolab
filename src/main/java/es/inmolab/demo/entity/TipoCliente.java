@@ -17,12 +17,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TipoCliente {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_tipo_cliente")
-	private Long idRegistro;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_tipo_cliente")
+    private Long idRegistro;
 
-	@Column(name = "descripcion")
-	private String descripcion;
-
+    @Column(name = "descripcion")
+    private String descripcion;
 }

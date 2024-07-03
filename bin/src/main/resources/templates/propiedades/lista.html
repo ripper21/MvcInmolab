@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="shortcut icon" href="./Logotipo/favicon16.png"
+	type="image/png">
+<link href="css/style.css" rel="stylesheet" />
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+	crossorigin="anonymous"></script>
+<title>Error</title>
+</head>
+<body>
+<!-- Barra de navegacion  -->
+<div th:replace="fragments/navbar :: navbar"></div>
+
+    <h1>Lista de Propiedades</h1>
+    <table>
+        <tr>
+            <th>Calle</th>
+            <th>Acciones</th>
+        </tr>
+        <tr th:each="propiedad : ${propiedades}">
+            <td th:text="${propiedad.calle}">Calle</td>
+            <td>
+                <a th:href="@{/propiedades/editar/{id}(id=${propiedad.idPropiedad})}">Editar</a>
+                <a th:href="@{/propiedades/eliminar/{id}(id=${propiedad.idPropiedad})}" th:onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/propiedades/nueva}">Agregar Nueva Propiedad</a>
+</body>
+</html>
