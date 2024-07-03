@@ -10,7 +10,6 @@ import es.inmolab.demo.common.exception.ErrorCode;
 import es.inmolab.demo.common.exception.ServiceException;
 import es.inmolab.demo.entity.Contrato;
 import es.inmolab.demo.repository.ContratoRepository;
-import es.inmolab.demo.repository.PropiedadRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -34,7 +33,19 @@ public class ContratoServiceImpl implements ContratoService {
 	}
 
 	@Override
-	public List<Contrato> getContratoByFechaCreacion(Date fechEntrada) throws ServiceException {
+	public List<Contrato> getContratoByFechaCreacion(Date fechCreacion) throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Contrato> getContratoByFechaEntrada(Date fechEntrada) throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Contrato> getContratoByFechaSalida(Date fechSalida) throws ServiceException {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -31,7 +31,7 @@ public class Contrato {
     
     @Column(name = "fech_creacion", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date fechcreacion;
+    private Date fechCreacion;
 
     @Column(name = "fech_entrada", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)

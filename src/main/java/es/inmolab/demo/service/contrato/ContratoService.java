@@ -10,7 +10,11 @@ public interface ContratoService {
 
 	List<Contrato> getAllContrato() throws ServiceException;
 
-	List<Contrato> getContratoByFechaCreacion(Date fechEntrada) throws ServiceException;
+	List<Contrato> getContratoByFechaCreacion(Date fechCreacion) throws ServiceException;
+
+	List<Contrato> getContratoByFechaEntrada(Date fechEntrada) throws ServiceException;
+
+	List<Contrato> getContratoByFechaSalida(Date fechSalida) throws ServiceException;
 
 	void deleteContrato(Long id) throws ServiceException;
 
