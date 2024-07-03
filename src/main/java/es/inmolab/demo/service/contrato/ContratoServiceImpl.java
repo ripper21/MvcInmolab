@@ -3,11 +3,14 @@ package es.inmolab.demo.service.contrato;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import es.inmolab.demo.common.exception.ErrorCode;
 import es.inmolab.demo.common.exception.ServiceException;
 import es.inmolab.demo.entity.Contrato;
-import es.inmolab.demo.service.propiedad.PropiedadServiceImpl;
+import es.inmolab.demo.repository.ContratoRepository;
+import es.inmolab.demo.repository.PropiedadRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -15,12 +18,19 @@ import lombok.extern.slf4j.Slf4j;
 public class ContratoServiceImpl implements ContratoService {
 	
 	
-	private final 
-
+	private final ContratoRepository contratoRepository ;
+    public ContratoServiceImpl(ContratoRepository contratoRepository) {
+        this.contratoRepository = contratoRepository;
+    }
+	
 	@Override
-	public List<ContratoDto> getAllContrato() throws ServiceException {
-		
-		return null;
+	public List<Contrato> getAllContrato() throws ServiceException {
+		log.info("[getAllContrato]");
+        try {
+            return contratoRepository.findAll();
+        } catch (DataAccessException e) {
+            throw new ServiceException("Error al recuperar todos los contratos", ErrorCode.PROPIEDAD_ERROR_GENERAL);
+        }
 	}
 
 	@Override
