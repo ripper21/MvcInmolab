@@ -39,9 +39,8 @@ public class ClienteImpl implements ClienteService {
     }
     
     @Override
-    public List<Cliente> obtieneClientesPorTipo(Model model) {
+    public List<Cliente> obtieneClientesPorTipo(String tipoCliente) {
         log.info("[obtieneClientesPorTipo] : OBTIENE CLIENTES POR TIPO");
-        String tipoCliente = (String) model.getAttribute("tipoCliente");
         List<Cliente> clientes = null;
         
         try {

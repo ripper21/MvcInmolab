@@ -22,13 +22,14 @@ public class ClienteController {
     public ClienteController(ClienteService clienteService) {
         this.clienteService = clienteService;
     }
-
-    @PostMapping
-    public String clientePorTipo(Model model) {
-        List<Cliente> clientes = clienteService.obtieneClientesPorTipo(model);
+    
+    @PostMapping("/tipo")
+    public String clientePorTipo(@ModelAttribute("tipoCliente") String tipoCliente, Model model) {
+        List<Cliente> clientes = clienteService.obtieneClientesPorTipo(tipoCliente);
         model.addAttribute("clientes", clientes);
         return "propiedadesAlquiler";
     }
+
 
     @GetMapping("/nuevo")
     public String mostrarFormularioDeRegistro(Model model) {
