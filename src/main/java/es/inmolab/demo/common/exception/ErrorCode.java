@@ -9,5 +9,6 @@ public class ErrorCode {
 	public static final String PROPIEDAD_NOT_FOUND = "3001";
 	public static final String PROPIEDAD_UPDATE_ERROR= "3002" ; 
 	public static final String PROPIEDAD_SAVE_ERROR ="3003";
+	public static final String PROPIEDAD_NO_ENCONTRADA = "3004";
 
 }
