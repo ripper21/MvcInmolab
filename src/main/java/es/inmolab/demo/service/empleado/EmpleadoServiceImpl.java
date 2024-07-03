@@ -104,14 +104,6 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 
 	}
 
-	private EmpleadoDto map(Empleado empleadoBBDD) {
-		EmpleadoDto empleado = new EmpleadoDto();
-		empleado.setIdEmpleado(empleadoBBDD.getIdEmpleado());
-		empleado.setNombre(empleadoBBDD.getNombre());
-		empleado.setApellido(empleadoBBDD.getApellido());
-		empleado.setTelefono(empleadoBBDD.getTelefono());
-		empleado.setCorreo(empleadoBBDD.getCorreo());
-		return empleado;
-	}
+
 
 }
