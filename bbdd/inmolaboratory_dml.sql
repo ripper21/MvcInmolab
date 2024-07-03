@@ -224,6 +224,26 @@ WHERE
     p.portal = 'A'
 ORDER BY 
     p.calle, p.num_calle, p.planta, p.portal, cp.nombre;
+    
+    -- Inserciones en la tabla tipo_contrato
+INSERT INTO tipo_contrato (nombre) VALUES ('Alquiler');
+INSERT INTO tipo_contrato (nombre) VALUES ('Venta');
+INSERT INTO tipo_contrato (nombre) VALUES ('Arrendamiento');
+INSERT INTO tipo_contrato (nombre) VALUES ('Arras');
+INSERT INTO tipo_contrato (nombre) VALUES ('Prestación de Servicios');
+-- Inserciones en la tabla contrato
+INSERT INTO contrato (fech_creacion, fech_entrada, fech_salida, precio_neto, id_tipo_operacion, documento) VALUES 
+('2024-01-01 12:00:00', '2024-02-01 12:00:00', '2024-12-01 12:00:00', 1200.00, 1, NULL),
+('2024-02-01 13:00:00', '2024-03-01 13:00:00', '2024-11-01 13:00:00', 1500.00, 2, NULL),
+('2024-03-01 14:00:00', '2024-04-01 14:00:00', '2024-10-01 14:00:00', 1100.00, 3, NULL),
+('2024-04-01 15:00:00', '2024-05-01 15:00:00', '2024-09-01 15:00:00', 1300.00, 4, NULL),
+('2024-05-01 16:00:00', '2024-06-01 16:00:00', '2024-08-01 16:00:00', 1400.00, 5, NULL),
+('2024-06-01 17:00:00', '2024-07-01 17:00:00', '2024-07-01 17:00:00', 1600.00, 1, NULL),
+('2024-07-01 18:00:00', '2024-08-01 18:00:00', '2024-06-01 18:00:00', 1700.00, 2, NULL),
+('2024-08-01 19:00:00', '2024-09-01 19:00:00', '2024-05-01 19:00:00', 1800.00, 3, NULL),
+('2024-09-01 20:00:00', '2024-10-01 20:00:00', '2024-04-01 20:00:00', 1900.00, 4, NULL),
+('2024-10-01 21:00:00', '2024-11-01 21:00:00', '2024-03-01 21:00:00', 2000.00, 5, NULL);
+
 
 
 

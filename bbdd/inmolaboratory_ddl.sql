@@ -136,22 +136,23 @@ CREATE TABLE propiedades_caracteristicas (
     FOREIGN KEY (id_propiedad) REFERENCES propiedades(id_propiedad),
     FOREIGN KEY (id_caracteristica) REFERENCES caracteristicas_de_la_propiedad(id_caracteristica)
 );
--- Creación de la tabla de unión tipo_contrato , que tiene una relacion Many to one con la tabla contrato  
+-- Creación de la tabla tipo_contrato
 CREATE TABLE tipo_contrato (
-    id_tipo_contrato INT AUTO_INCREMENT PRIMARY KEY,
+    id_tipo_contrato BIGINT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(150) NOT NULL
 );
--- Creación de la tabla de unión contrato , que tiene una relacion One to Many con la tabla contrato
-CREATE TABLE contrato (
-    id_contrato INT AUTO_INCREMENT PRIMARY KEY,
-    fech_entrada DATETIME NOT NULL,
-    fech_salida DATETIME,
-    precio_neto DOUBLE NOT NULL,
-    id_tipo_contrato INT NOT NULL,
-    documento BLOB,  -- Campo para almacenar documentos
-    FOREIGN KEY (id_tipo_contrato) REFERENCES tipo_contrato(id_tipo_contrato)
-);
 
+-- Creación de la tabla contrato
+CREATE TABLE contrato (
+    id_contrato BIGINT AUTO_INCREMENT PRIMARY KEY,
+    fech_creacion TIMESTAMP NOT NULL,
+    fech_entrada TIMESTAMP NOT NULL,
+    fech_salida TIMESTAMP,
+    precio_neto DOUBLE NOT NULL,
+    id_tipo_operacion BIGINT NOT NULL,
+    documento LONGBLOB,
+    CONSTRAINT fk_tipo_contrato FOREIGN KEY (id_tipo_operacion) REFERENCES tipo_contrato(id_tipo_contrato)
+);
 
 
 
