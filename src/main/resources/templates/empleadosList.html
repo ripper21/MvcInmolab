@@ -89,7 +89,7 @@
 								aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 								<nav class="sb-sidenav-menu-nested nav">
 									<a class="nav-link" th:href="@{/propiedadesAlquiler}">Inmuebles</a>
-									<a class="nav-link" th:href="@{/contratoAlquilerList}">Contratos</a>
+									<a class="nav-link" th:href="@{/contratos}">Contratos</a>
 								</nav>
 							</div>
 							<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -105,8 +105,8 @@
 							<div class="collapse" id="collapseVenta"
 								aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 								<nav class="sb-sidenav-menu-nested nav">
-									<a class="nav-link" th:href="@{/propiedadesVenta}">Inmuebles</a>
-									<a class="nav-link" th:href="@{/contratoVentaList}">Contratos</a>
+									<a class="nav-link" th:href="@{/propiedadesAlquiler}">Inmuebles</a>
+									<a class="nav-link" th:href="@{/contratos}">Contratos</a>
 								</nav>
 							</div>
 							<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -162,8 +162,24 @@
 						<h1 class="mt-4" th:text="#{empleados.titulo}">Empleados</h1>
 						<ol class="breadcrumb mb-4">
 							<li class="breadcrumb-item active"
-								th:text="#{empleados.breadcrumb}">Empleados</li>
+								th:text="#{empleados.breadcrumb}">Filtros</li>
 						</ol>
+						
+						 <form action="#" method="POST" class="mb-4">
+                        <div class="row  justify-content-center">
+                             <div class="col-md-4">
+                                <label for="idEmpleado" class="form-label">ID Empleado</label>
+                                <input type="text" class="form-control" id="idEmpleado" name="idEmpleado" placeholder="Nro registro ">
+                            </div>
+                            <div class="col-md-4 align-self-end">
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                            </div>
+                             <div class="col-md-4 align-self-end text-start">
+                                <a href="#" class="btn btn-secondary" th:href="@{/empleados/listar}">Limpiar Filtros</a>
+                            </div>
+                        </div>
+                    </form>
+						
 
 						<div class="card mb-4">
 							<div class="card-header">
@@ -179,11 +195,9 @@
 											<th th:text="#{empleados.columna.nombre}">Nombre</th>
 											<th th:text="#{empleados.columna.apellido}">Apellido</th>
 											<th th:text="#{empleados.columna.telefono}">Teléfono</th>
-											<th th:text="#{empleados.columna.fecha_nacimiento}">Fecha
-												de Nacimiento</th>
 											<th th:text="#{empleados.columna.correo}">Correo</th>
-											<th th:text="#{empleados.columna.nif}">NIF</th>
-											<th th:text="#{empleados.columna.departamento}">Departamento</th>
+											<th th:text="#{empleados.columna.fecha_nacimiento}">Fecha de Nacimiento</th>
+
 										</tr>
 									</thead>
 									<tfoot>
@@ -192,11 +206,9 @@
 											<th th:text="#{empleados.columna.nombre}">Nombre</th>
 											<th th:text="#{empleados.columna.apellido}">Apellido</th>
 											<th th:text="#{empleados.columna.telefono}">Teléfono</th>
-											<th th:text="#{empleados.columna.fecha_nacimiento}">Fecha
-												de Nacimiento</th>
 											<th th:text="#{empleados.columna.correo}">Correo</th>
-											<th th:text="#{empleados.columna.nif}">NIF</th>
-											<th th:text="#{empleados.columna.departamento}">Departamento</th>
+											<th th:text="#{empleados.columna.fecha_nacimiento}">Fecha de Nacimiento</th>
+
 										</tr>
 									</tfoot>
 									<tbody>
