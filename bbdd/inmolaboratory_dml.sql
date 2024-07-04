@@ -143,6 +143,15 @@ INSERT INTO cliente (nombre, apellido, direccion, correo, telefono, fech_nac, ni
 ('Andrés', 'Vega', 'Avenida de los Pinos 23', 'andres.vega@example.com', 1234567808, '1983-07-19', 'P9012345S', 1),
 ('Clara', 'Molina', 'Calle del Sauce 24', 'clara.molina@example.com', 1234567809, '1992-08-20', 'Q0123456T', 2);
 
+-- Inserción de datos en la tabla 'tipo_cliente'
+INSERT INTO tipo_cliente (descripcion) VALUES 
+('Regular'),
+('VIP'),
+('Nuevo'),
+('Frecuente'),
+('Corporativo');
+
+-- Inserción de datos en la tabla 'aracteristicas_de_la_propiedad'
 INSERT INTO caracteristicas_de_la_propiedad (nombre) VALUES
 ('Planta'),
 ('Metros Usables'),
@@ -160,7 +169,7 @@ INSERT INTO caracteristicas_de_la_propiedad (nombre) VALUES
 ('ConsumoKW'),
 ('EmisionCO2');
 
-INSERT INTO empleados (nombre, apellido, telefono, fechNac, correo, nif, ssNum) VALUES
+INSERT INTO empleados (nombre, apellido, telefono, fech_nac, correo, nif, ss_num) VALUES
 ('Juan', 'Pérez', 1234567890, '1980-05-15', 'juan.perez@example.com', '12345678P', 987654321),
 ('Laura', 'García', 2345678901, '1985-08-25', 'laura.garcia@example.com', '87654321L', 876543210),
 ('Carlos', 'Martínez', 3456789012, '1990-01-30', 'carlos.martinez@example.com', '76543210C', 765432109),
@@ -171,7 +180,6 @@ INSERT INTO empleados (nombre, apellido, telefono, fechNac, correo, nif, ssNum) 
 ('Sara', 'Morales', 8901234567, '1989-09-09', 'sara.morales@example.com', '21098765S', 210987654),
 ('Oscar', 'Ruiz', 9012345678, '1995-03-28', 'oscar.ruiz@example.com', '10987654O', 109876543),
 ('Marta', 'Hernández', 1234567890, '1986-06-18', 'marta.hernandez@example.com', '09876543M', 987654321);
-
 INSERT INTO propiedades (fech_captacion, cod_postal, calle, num_calle, id_empleado, planta, portal)
 VALUES 
 ('2023-06-01', 28013, 'Gran Via', '42', 1, 1, 'A'),
