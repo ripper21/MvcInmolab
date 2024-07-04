@@ -37,8 +37,8 @@
                                     <i class="fas fa-user fa-fw"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item text" href="#!">Settings</a></li>
-                                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                                    <li><a class="dropdown-item text" href="#!">Configuración</a></li>
+                                    <li><a class="dropdown-item" href="#!">Actividad</a></li>
                                     <li><hr class="dropdown-divider" /></li>
                                     <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
                                 </ul>
@@ -241,12 +241,20 @@
         <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js}" crossorigin="anonymous"></script>
         <script th:src="@{/js/scripts.js}"></script>
             <script>
-        window.addEventListener('DOMContentLoaded', event => {
-            const datatablesSimple = document.getElementById('datatablesSimple');
-            if (datatablesSimple) {
-                new simpleDatatables.DataTable(datatablesSimple);
-            }
-        });
+    window.addEventListener('DOMContentLoaded', event => {
+        const datatablesSimple = document.getElementById('datatablesSimple');
+        if (datatablesSimple) {
+            new simpleDatatables.DataTable(datatablesSimple, {
+                labels: {
+                    placeholder: "Buscar...", // Placeholder del campo de búsqueda
+                    perPage: "registros por página", // Opción para seleccionar cuántos registros mostrar por página
+                    noRows: "No se encontraron registros", // Mensaje cuando no se encuentran registros
+                    info: "Mostrando registros del {start} al {end} de un total de {rows} registros", // Información de los registros mostrados
+                },
+                // Aquí puedes seguir añadiendo otras opciones y etiquetas necesarias
+            });
+        }
+    });
     </script>
     </body>
 </html>
