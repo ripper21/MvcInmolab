@@ -126,42 +126,52 @@
                                 <div class="border border-dark border-2 rounded-start m-3 p-1 ">                              
                                 <h2 class="my-4 justify-content-center text-center">Registrar Nuevo Cliente</h2>
                                 <form th:action="@{/cliente/guardar}" th:object="${cliente}" method="post">  
-                                    <div class="">
-                                        <label for="nombre" class="form-label text-dark ">Nombre:</label>
-                                        <input type="text" class="form-control" id="nombre" th:field="*{nombre}" />
-                                    </div>
-                                    <div class="">
-                                        <label for="apellido" class="form-label text-dark" align=left>Apellido:</label>
-                                        <input type="text" class="form-control" id="apellido" th:field="*{apellido}" />
-                                    </div>
-                                    <div class="">
-                                        <label for="direccion" class="form-label text-dark" align=left>Dirección:</label>
-                                        <input type="text" class="form-control" id="direccion" th:field="*{direccion}" placeholder="Calle,Numero,Codigo Postal" />
-                                    </div>
-                                    <div class="">
-                                        <label for="correo" class="form-label text-dark" align=left>Correo:</label>
-                                        <input type="email" class="form-control" id="correo" th:field="*{correo}" placeholder="Email" />
-                                    </div>
-                                    <div class="">
-                                        <label for="telefono" class="form-label text-dark" align=left>Teléfono:</label>
-                                        <input type="text" class="form-control" id="telefono" th:field="*{telefono}" placeholder="solo numeros" />
-                                    </div>
-                                    <div class="">
-                                        <label for="fechaNacimiento" class="form-label text-dark" align=left>Fecha de Nacimiento:</label>
-                                        <input type="date" class="form-control" id="fechaNacimiento" th:field="*{fechaNacimiento}" />
-                                    </div>
-                                    <div class="">
+                                    <div class="row">
+
+                                        <div class="col-12 " style="display: ruby;">
+
+                                    
+                                        <div class="col-5">
+                                            <label for="nombre" class="form-label text-dark ">Nombre:</label>
+                                            <input type="text" class="form-control" id="nombre" th:field="*{nombre}" />
+                                        </div>
+                                        <div class="col-5">
+                                            <label for="apellido" class="form-label text-dark" align=left>Apellido:</label>
+                                            <input type="text" class="form-control" id="apellido" th:field="*{apellido}" />
+                                        </div>
+                                        
+                                        <div class="col-5">
+                                            <label for="direccion" class="form-label text-dark" align=left>Dirección:</label>
+                                            <input type="text" class="form-control" id="direccion" th:field="*{direccion}" placeholder="Calle,Numero,Codigo Postal" />
+                                        </div>
+                                        <div class="col-5">
+                                            <label for="correo" class="form-label text-dark" align=left>Correo:</label>
+                                            <input type="email" class="form-control" id="correo" th:field="*{correo}" placeholder="Email" />
+                                        </div>
+                                        <div class="col-5">                                        <label for="telefono" class="form-label text-dark" align=left>Teléfono:</label>
+                                            <input type="text" class="form-control" id="telefono" th:field="*{telefono}" placeholder="solo numeros" />
+                                        </div>
+                                        <div class="col-5">                                        <label for="fechaNacimiento" class="form-label text-dark" align=left>Fecha de Nacimiento:</label>
+                                            <input type="date" class="form-control" id="fechaNacimiento" th:field="*{fechaNacimiento}" />
+                                        </div>
+                                        <div class="col-5">                                        
                                         <label for="nif" class="form-label text-dark" align=left>NIF:</label>
-                                        <input type="text" class="form-control" id="nif" th:field="*{nif}" placeholder="X0000000X" />
+                                            <input type="text" class="form-control" id="nif" th:field="*{nif}" placeholder="X0000000X" />
+                                        </div>
+                                        <div class="col-5"> 
+                                            <div class="m-2">
+                                                <label for="tipoCliente" class="form-label text-dark" align=left>Tipo de Cliente:</label>
+                                                <input type="text" class="form-control" id="tipoCliente" th:field="*{tipoCliente}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-8 justify-content-center"> 
+                                            <button type="submit" class="btn btn-success p-2">Guardar</button>
+                                            </div>
                                     </div>
-                                    <div class="m-2">
-                                        <label for="tipoCliente" class="form-label text-dark" align=left>Tipo de Cliente:</label>
-                                        <input type="text" class="form-control" id="tipoCliente" th:field="*{tipoCliente}" />
-                                    </div>
-                                    <button type="submit" class="btn btn-primary p-2">Guardar</button>
                                 </div>
                                 </form>
                             </div>
+                        </div>
                         </div>
                     </div>
                 <!-- Modal -->

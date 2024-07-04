@@ -4,6 +4,10 @@
     text-align: center; 
 }
 
+.contruccion{
+	width: 100%;
+}
+
 .bodyLogin{
   background-color:rgba(255, 255, 255, 0.363); ;
   background-size: cover;
