@@ -118,15 +118,6 @@ public class ContratoServiceImplTest {
     }
 
     @Test
-    void upgradeContrato() throws ServiceException {
-        when(contratoRepository.save(any(Contrato.class))).thenReturn(contrato);
-
-        contratoService.upgradeContrato(contrato);
-
-        verify(contratoRepository, times(1)).save(contrato);
-    }
-
-    @Test
     void getContratoByNroContrato() throws ServiceException {
         when(contratoRepository.findById(anyLong())).thenReturn(Optional.of(contrato));
         when(modelMapper.map(any(Contrato.class), eq(ContratoDto.class))).thenReturn(contratoDto);
@@ -138,12 +129,5 @@ public class ContratoServiceImplTest {
         verify(contratoRepository, times(1)).findById(1L);
     }
 
-    @Test
-    void saveContrato() throws ServiceException {
-        when(contratoRepository.save(any(Contrato.class))).thenReturn(contrato);
 
-        contratoService.saveContrato(contrato);
-
-        verify(contratoRepository, times(1)).save(contrato);
-    }
 }

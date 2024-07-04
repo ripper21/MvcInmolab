@@ -1,5 +1,6 @@
 package es.inmolab.demo.service.contrato;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,6 +9,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import es.inmolab.demo.common.exception.ErrorCode;
 import es.inmolab.demo.common.exception.ServiceException;
@@ -97,12 +99,15 @@ public class ContratoServiceImpl implements ContratoService {
 	}
 
 	@Override
-	public void upgradeContrato(Contrato contrato) throws ServiceException {
+	public void upgradeContrato(Contrato contrato, MultipartFile documento) throws ServiceException {
 		log.info("[upgradeContrato]");
 		log.debug("[MODIFICAR CONTRATO: " + contrato.toString() + "]");
 		try {
+			if (!documento.isEmpty()) {
+				contrato.setDocumento(documento.getBytes());
+			}
 			contratoRepository.save(contrato);
-		} catch (DataAccessException e) {
+		} catch (DataAccessException | IOException e) {
 			log.error("Error al modificar contrato", e);
 			throw new ServiceException("Error al modificar contrato", ErrorCode.PROPIEDAD_ERROR_GENERAL);
 		}
@@ -126,12 +131,15 @@ public class ContratoServiceImpl implements ContratoService {
 	}
 
 	@Override
-	public void saveContrato(Contrato contrato) throws ServiceException {
+	public void saveContrato(Contrato contrato, MultipartFile documento) throws ServiceException {
 		log.info("[saveContrato]");
 		log.debug("[CONTRATO GUARDADO: " + contrato.toString() + "]");
 		try {
+			if (!documento.isEmpty()) {
+				contrato.setDocumento(documento.getBytes());
+			}
 			contratoRepository.save(contrato);
-		} catch (DataAccessException e) {
+		} catch (DataAccessException | IOException e) {
 			log.error("Error al guardar contrato", e);
 			throw new ServiceException("Error al guardar contrato", ErrorCode.PROPIEDAD_ERROR_GENERAL);
 		}

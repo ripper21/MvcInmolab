@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Contrato</title>
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+</head>
+<body>
+    <h1>Detalle de Contrato</h1>
+
+    <form th:action="@{/contratos}" th:object="${contrato}" method="post" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{idContrato}" />
+
+        <label for="fechCreacion">Fecha Creación</label>
+        <input type="date" th:field="*{fechCreacion}" required />
+
+        <label for="fechEntrada">Fecha Entrada</label>
+        <input type="date" th:field="*{fechEntrada}" required />
+
+        <label for="fechSalida">Fecha Salida</label>
+        <input type="date" th:field="*{fechSalida}" />
+
+        <label for="precioNeto">Precio Neto</label>
+        <input type="number" th:field="*{precioNeto}" required />
+
+        <label for="tipoContrato">Tipo Contrato</label>
+        <select th:field="*{tipoContrato}" required>
+            <option th:each="tipo : ${tiposContrato}" th:value="${tipo.idTipoContrato}" th:text="${tipo.nombre}">Tipo 1</option>
+        </select>
+
+        <label for="documento">Documento</label>
+        <input type="file" id="documento" name="documento" />
+
+        <button type="submit">Guardar</button>
+    </form>
+
+    <a th:href="@{/contratos}">Volver a la lista</a>
+</body>
+</html>

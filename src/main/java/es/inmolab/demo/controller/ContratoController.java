@@ -1,4 +1,5 @@
 package es.inmolab.demo.controller;
+
 import java.util.Date;
 import java.util.List;
 
@@ -14,11 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import es.inmolab.demo.common.exception.ServiceException;
 import es.inmolab.demo.dto.ContratoDto;
 import es.inmolab.demo.entity.Contrato;
+import es.inmolab.demo.entity.TipoContrato;
 import es.inmolab.demo.service.contrato.ContratoService;
+import es.inmolab.demo.service.contrato.TipoContratoService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -27,10 +31,12 @@ import lombok.extern.slf4j.Slf4j;
 public class ContratoController {
 
     private final ContratoService contratoService;
+    private final TipoContratoService tipoContratoService;
 
     @Autowired
-    public ContratoController(ContratoService contratoService) {
+    public ContratoController(ContratoService contratoService, TipoContratoService tipoContratoService) {
         this.contratoService = contratoService;
+        this.tipoContratoService = tipoContratoService;
     }
 
     @GetMapping
@@ -39,6 +45,10 @@ public class ContratoController {
         try {
             List<ContratoDto> contratos = contratoService.getAllContrato();
             model.addAttribute("contratos", contratos);
+
+            List<TipoContrato> tiposContrato = tipoContratoService.getAllTipoContrato();
+            model.addAttribute("tiposContrato", tiposContrato);
+
             return "contratos/list"; // Devuelve la vista 'list.html' en el directorio 'contratos'
         } catch (ServiceException e) {
             log.error("Error al recuperar todos los contratos", e);
@@ -98,6 +108,10 @@ public class ContratoController {
         try {
             ContratoDto contrato = contratoService.getContratoByNroContrato(id);
             model.addAttribute("contrato", contrato);
+
+            List<TipoContrato> tiposContrato = tipoContratoService.getAllTipoContrato();
+            model.addAttribute("tiposContrato", tiposContrato);
+
             return "contratos/detail"; // Devuelve la vista 'detail.html' en el directorio 'contratos'
         } catch (ServiceException e) {
             log.error("Error al recuperar contrato por ID", e);
@@ -107,10 +121,10 @@ public class ContratoController {
     }
 
     @PostMapping
-    public String saveContrato(@ModelAttribute Contrato contrato, Model model) {
+    public String saveContrato(@ModelAttribute Contrato contrato, @RequestParam("documento") MultipartFile documento, Model model) {
         log.info("POST /contratos");
         try {
-            contratoService.saveContrato(contrato);
+            contratoService.saveContrato(contrato, documento);
             return "redirect:/contratos"; // Redirige a la lista de contratos
         } catch (ServiceException e) {
             log.error("Error al guardar contrato", e);
@@ -120,11 +134,10 @@ public class ContratoController {
     }
 
     @PutMapping("/{id}")
-    public String updateContrato(@PathVariable("id") Long id, @ModelAttribute Contrato contrato, Model model) {
+    public String updateContrato(@PathVariable("id") Long id, @ModelAttribute Contrato contrato, @RequestParam("documento") MultipartFile documento, Model model) {
         log.info("PUT /contratos/" + id);
         try {
-            contrato.setIdContrato(id);  // Asegúrate de que el ID está configurado correctamente
-            contratoService.upgradeContrato(contrato);
+            contratoService.upgradeContrato(contrato, documento);
             return "redirect:/contratos"; // Redirige a la lista de contratos
         } catch (ServiceException e) {
             log.error("Error al actualizar contrato", e);
