@@ -1,54 +1,252 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Lista de Contratos</title>
-    <link th:href="@{/css/styles.css}" rel="stylesheet">
-    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css}" rel="stylesheet">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="Richard Alejandro Silva" />
+<link th:href="@{/logos/favicon16.png}" rel="shortcut icon" type="image/png">
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link th:href="@{https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css}" rel="stylesheet" />
+<script th:src="@{https://use.fontawesome.com/releases/v6.3.0/js/all.js}" crossorigin="anonymous"></script>
+<title>Empleados</title>
 </head>
 
-<body class="bg-light">
-    <div class="container mt-5">
-        <h1 class="mb-4">Lista de Contratos</h1>
-
-        <div class="mb-3">
-            <a th:href="@{/contratos/new}" class="btn btn-primary">Nuevo Contrato</a>
+<body class="sb-nav-fixed">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+                <div class="col-md-3">
+                    <a class="navbar-brand ps-3" th:href="@{/index}">
+                        <img class="invert" th:src="@{/logos/menuNavLogo.png}" alt="Inmolab">
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-link btn-light btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <div class="float-end">
+                        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user fa-fw"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item text" href="#!">Settings</a></li>
+                                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
 
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Fecha Creación</th>
-                    <th>Fecha Entrada</th>
-                    <th>Fecha Salida</th>
-                    <th>Precio Neto</th>
-                    <th>Tipo Contrato</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="contrato : ${contratos}">
-                    <td th:text="${contrato.idContrato}"></td>
-                    <td th:text="${#dates.format(contrato.fechCreacion, 'dd-MM-yyyy')}"></td>
-                    <td th:text="${#dates.format(contrato.fechEntrada, 'dd-MM-yyyy')}"></td>
-                    <td th:text="${#dates.format(contrato.fechSalida, 'dd-MM-yyyy')}"></td>
-                    <td th:text="${contrato.precioNeto}"></td>
-                    <td th:text="${contrato.tipoContrato.nombre}"></td>
-                    <td>
-                        <a th:href="@{/contratos/edit/{id}(id=${contrato.idContrato})}" class="btn btn-info">Editar</a>
-                        <form th:action="@{/contratos/delete/{id}(id=${contrato.idContrato})}" method="post" style="display:inline">
-                            <input type="hidden" name="_method" value="delete" />
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                        </form>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <a class="nav-link" th:href="@{/index}">
+                                <div class="sb-nav-link-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                Alquiler
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Utilidades</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAlquiler" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                Alquiler
+                                <div class="sb-sidenav-collapse-arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                            </a>
+                            <div class="collapse" id="collapseAlquiler" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" th:href="@{/propiedadesAlquiler}">Inmuebles</a>
+                                    <a class="nav-link" th:href="@{/contratos}">Contratos</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVenta" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
+                                Venta
+                                <div class="sb-sidenav-collapse-arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                            </a>
+                            <div class="collapse" id="collapseVenta" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" th:href="@{/@{/propiedadesAlquiler}}">Inmuebles</a>
+                                    <a class="nav-link" th:href="@{/contratos}">Contratos</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePropietarios" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon">
+                                    <i class="fa-solid fa-building"></i>
+                                </div>
+                                Propietarios
+                                <div class="sb-sidenav-collapse-arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                            </a>
+                            <div class="collapse" id="collapsePropietarios" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" th:href="@{/propietariosList}">Consultar</a>
+                                    <a class="nav-link" th:href="@{/cliente/nuevo}">Agregar Propietarios</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseEmpleados" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </div>
+                                Administrativo
+                                <div class="sb-sidenav-collapse-arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                            </a>
+                            <div class="collapse" id="collapseEmpleados" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" th:href="@{/empleados/listar}">Empleados</a>
+                                    <a class="nav-link" th:href="@{/facturacion}">Facturación</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
 
-    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js}" crossorigin="anonymous"></script>
-</body>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Nombre : Usuario</div>
+                        InmoLab
+                    </div>
+                </nav>
+            </div>
 
+ <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">Contratos</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table me-1"></i>
+                            Lista de Contratos
+                        </div>
+                        <div class="card-body">
+                            <table id="datatablesSimple">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Fecha Creación</th>
+                                        <th>Fecha Entrada</th>
+                                        <th>Fecha Salida</th>
+                                        <th>Precio Neto</th>
+                                        <th>Tipo Contrato</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="contrato : ${contratos}">
+                                        <td th:text="${contrato.idContrato}"></td>
+                                        <td th:text="${#dates.format(contrato.fechCreacion, 'dd-MM-yyyy')}"></td>
+                                        <td th:text="${#dates.format(contrato.fechEntrada, 'dd-MM-yyyy')}"></td>
+                                        <td th:text="${#dates.format(contrato.fechSalida, 'dd-MM-yyyy')}"></td>
+                                        <td th:text="${contrato.precioNeto}"></td>
+                                        <td th:text="${contrato.tipoContrato.nombre}"></td>
+                                        <td>
+                                            <a th:href="@{/contratos/edit/{id}(id=${contrato.idContrato})}" class="btn btn-primary">Editar</a>
+                                            <a th:href="@{/contratos/delete/{id}(id=${contrato.idContrato})}" class="btn btn-danger">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="ModalPrivPoli" tabindex="-1" aria-labelledby="ModalPrivPoliLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="ModalPrivPoliLabel">Reporte de Política de Privacidad de InmoLab</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>1. Información sobre el Responsable del Tratamiento de Datos: El responsable del tratamiento de datos personales en InmoLab es [Nombre de la Empresa]. [Nombre de la Empresa] está ubicada en [Dirección] y está registrada en [Registro Mercantil, si corresponde]. Para contactar con [Nombre de la Empresa], se puede utilizar la siguiente información de contacto: [Correo Electrónico, Teléfono]. 2. Finalidad del Tratamiento de Datos: Los datos personales recopilados a través de InmoLab se utilizan con la finalidad de [Describir la finalidad del tratamiento de datos, por ejemplo, proporcionar servicios, responder consultas, enviar boletines informativos, etc.]. 3. Base Legal del Tratamiento: El tratamiento de datos personales se basa en [Especificar la base legal del tratamiento, como el consentimiento del usuario, el cumplimiento de un contrato, etc.]. 4. Derechos de los Usuarios: Los usuarios tienen derecho a [Enumerar los derechos de los usuarios, como el derecho de acceso, rectificación, supresión, etc.], los cuales pueden ejercer mediante [Describir el procedimiento para ejercer los derechos, por ejemplo, a través de un formulario en línea, correo electrónico, etc.]. 5. Destinatarios de los Datos: Los datos personales recopilados pueden ser compartidos con [Enumerar los destinatarios de los datos, como terceros proveedores de servicios, empresas asociadas, etc.], únicamente con la finalidad de [Describir la finalidad de compartir los datos]. 6. Transferencias Internacionales de Datos: En caso de que los datos personales sean transferidos a países fuera del Espacio Económico Europeo, se aplicarán las garantías adecuadas, como [Especificar las garantías, como cláusulas contractuales tipo, decisiones de adecuación de la Comisión Europea, etc.]. 7. Duración del Tratamiento: Los datos personales se conservarán durante [Especificar el período de conservación de los datos] o durante el tiempo necesario para cumplir con la finalidad para la que fueron recopilados. 8. Medidas de Seguridad: Se han implementado medidas de seguridad técnicas y organizativas para proteger los datos personales de los usuarios, incluyendo [Describir las medidas de seguridad, como encriptación de datos, acceso restringido, etc.].</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rechazar</button>
+                                    <button type="button" class="btn btn-primary">Aceptar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="ModalTermCondi" tabindex="-1" aria-labelledby="ModalTermCondiLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="ModalTermCondiLabel">Terminos y condiciones</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>En InmoLab utilizamos cookies y tecnologías similares, propias y de terceros (ver nuestros 22 proveedores), para ofrecerte una experiencia personalizada. Al hacerlo, procesamos datos personales como identificadores únicos y datos de navegación. Puedes aceptar o rechazar las cookies en los botones correspondientes. También puedes elegir qué cookies aceptar haciendo click en configurar. En cualquier momento, puedes retirar tu consentimiento o manifestar tu oposición al procesamiento basado en el interés legítimo haciendo clic en nuestra política de cookies. Nosotros y nuestros proveedores hacemos el siguiente procesamiento de datos: anuncios personalizados y contenido, medida de anuncios y contenido, conocimientos de audiencia y desarrollo de productos, datos de geolocalización precisos e identificación a través de la exploración de dispositivos, almacenamiento y/o acceso de información a un dispositivo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rechazar</button>
+                                    <button type="button" class="btn btn-primary">Aceptar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Richard Silva 2024</div>
+                            <div>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#ModalPrivPoli">Privacy Policy</a> &middot; 
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#ModalTermCondi">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js}" crossorigin="anonymous"></script>
+        <script th:src="@{https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js}" crossorigin="anonymous"></script>
+        <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js}" crossorigin="anonymous"></script>
+        <script th:src="@{/js/scripts.js}"></script>
+            <script>
+        window.addEventListener('DOMContentLoaded', event => {
+            const datatablesSimple = document.getElementById('datatablesSimple');
+            if (datatablesSimple) {
+                new simpleDatatables.DataTable(datatablesSimple);
+            }
+        });
+    </script>
+    </body>
 </html>
