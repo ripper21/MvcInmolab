@@ -165,8 +165,9 @@
                                         <td th:text="${contrato.precioNeto}"></td>
                                         <td th:text="${contrato.tipoContrato.nombre}"></td>
                                         <td>
-                                            <a th:href="@{/contratos/edit/{id}(id=${contrato.idContrato})}" class="btn btn-primary">Editar</a>
-                                            <a th:href="@{/contratos/delete/{id}(id=${contrato.idContrato})}" class="btn btn-danger">Eliminar</a>
+                                          <a th:href="@{/propiedades/editar/{id}(id=${contrato.idContrato})}" class="btn btn-info" ><i class="fa-regular fa-pen-to-square"></i></a>
+              							  <a th:href="@{/propiedades/editar/{id}(id=${contrato.idContrato})}" class="btn btn-success"><i class="fa-solid fa-download"></i></a> 
+              							  <a th:href="@{/propiedades/eliminar/{id}(id=${contrato.idContrato})}" th:onclick="return confirm('¿Estás seguro?')" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>

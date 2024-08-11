@@ -27,8 +27,9 @@
         <tr th:each="propiedad : ${propiedades}">
             <td th:text="${propiedad.calle}">Calle</td>
             <td>
-                <a th:href="@{/propiedades/editar/{id}(id=${propiedad.idPropiedad})}">Editar</a>
-                <a th:href="@{/propiedades/eliminar/{id}(id=${propiedad.idPropiedad})}" th:onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                <a th:href="@{/propiedades/editar/{id}(id=${propiedad.idPropiedad})}"><i class="fa-solid fa-user"></i></a>
+                <a th:href="@{/propiedades/editar/{id}(id=${propiedad.idPropiedad})}"><i class="fa-solid fa-download"></i></a>
+                <a th:href="@{/propiedades/eliminar/{id}(id=${propiedad.idPropiedad})}" th:onclick="return confirm('¿Estás seguro?')"><i class="fa-solid fa-trash"></i></a>
             </td>
         </tr>
     </table>
